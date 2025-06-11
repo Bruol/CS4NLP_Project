@@ -1,0 +1,53 @@
+from src.models.base_model import ModelEBase, ModelJBase
+from src.datasets.base_dataset import BaseDataset
+from typing import List, Dict, Any
+from tqdm import tqdm
+
+class Pipeline:
+    """
+    The main pipeline for running the bias evaluation.
+    """
+
+    def __init__(self, model_e: ModelEBase, model_j: ModelJBase, dataset: BaseDataset):
+        """
+        Initializes the pipeline.
+
+        Args:
+            model_e (ModelEBase): The model to be evaluated.
+            model_j (ModelJBase): The judge model.
+            dataset (BaseDataset): The dataset to use for evaluation.
+        """
+        self.model_e = model_e
+        self.model_j = model_j
+        self.dataset = dataset
+
+    def run(self, with_cot: bool = False) -> List[Dict[str, Any]]:
+        """
+        Runs the evaluation pipeline.
+
+        Args:
+            with_cot (bool): Whether to use chain-of-thought for Model-E.
+
+        Returns:
+            List[Dict[str, Any]]: A list of results, where each result is a dictionary.
+        """
+        results = []
+        for sample in tqdm(self.dataset, desc="Running evaluation"):
+            # 1. Generate response from Model-E
+            model_e_response = self.model_e.generate_response(
+                prompt=sample["prompt"], 
+                with_cot=with_cot
+            )
+
+            # 2. Evaluate the response with Model-J
+            evaluation = self.model_j.evaluate_response(model_e_response)
+
+            # 3. Store the results
+            result = {
+                "dataset_sample": sample,
+                "model_e_response": model_e_response,
+                "model_j_evaluation": evaluation,
+            }
+            results.append(result)
+
+        return results 

@@ -1,7 +1,3 @@
-Of course. Based on the provided research proposal, here is a comprehensive README file for the project.
-
----
-
 # The Influence of Chain-of-Thought on LLM Biases
 
 [![Project Status: Active](https://img.shields.io/badge/status-active-success.svg)](https://github.com/Bruol/CS4NLP_Project)
