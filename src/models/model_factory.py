@@ -2,6 +2,7 @@ from src.models.base_model import BaseLM
 from src.models.gemini_model_e import GeminiModelE
 from src.models.gemini_model_j import GeminiModelJ
 from src.models.deep_seek_model_e import DeepSeekModelE
+from src.models.deep_seek_model_j import DeepSeekModelJ
 
 SUPPORTED_MODELS = {
     "google/gemini-2.5-flash": "gemini-2.5-flash-preview-05-20",
@@ -26,6 +27,8 @@ def get_model(model_name: str, model_type: str) -> BaseLM:
     elif provider == "deepseek-ai":
         if model_type == "e":
             model_class = DeepSeekModelE
+        elif model_type == "j":
+            model_class = DeepSeekModelJ
     else:
         raise ValueError(f"Model '{model_name}' is not supported.")
     
