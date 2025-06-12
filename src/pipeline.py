@@ -1,5 +1,5 @@
 from src.models.base_model import ModelEBase, ModelJBase
-from src.datasets.base_dataset import BaseDataset
+from src.data_loaders.base_dataset import BaseDataset
 from typing import List, Dict, Any
 from tqdm import tqdm
 

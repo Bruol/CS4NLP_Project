@@ -1,4 +1,4 @@
-from src.datasets.base_dataset import BaseDataset
+from src.data_loaders.base_dataset import BaseDataset
 from datasets import load_dataset
 from typing import Iterator, Dict, Any
 
@@ -7,9 +7,9 @@ class BBQDataset(BaseDataset):
     Wrapper for the BBQ dataset from Hugging Face.
     """
 
-    def __init__(self, split: str = "test", num_samples: int = None):
+    def __init__(self, num_samples: int = None, split: str = "age"):
         super().__init__(f"BBQ_{split}")
-        self.dataset = load_dataset("Elfsong/BBQ", split=split)
+        self.dataset = load_dataset("Elfsong/BBQ")[split]
         if num_samples:
             self.dataset = self.dataset.select(range(num_samples))
     
@@ -35,7 +35,9 @@ class BBQDataset(BaseDataset):
                 "ans0": sample["ans0"],
                 "ans1": sample["ans1"],
                 "ans2": sample["ans2"],
-                "label": sample["label"],
+                "label": sample["target_label"],
+                "context_condition": sample["context_condition"],
+                "question_polarity": sample["question_polarity"],
                 "category": sample["category"]
             }
 

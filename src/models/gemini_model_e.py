@@ -1,4 +1,4 @@
-from google.genai import Client
+from google.genai import Client, types
 from src.models.base_model import ModelEBase
 from src.config import GOOGLE_API_KEY
 
@@ -9,10 +9,10 @@ class GeminiModelE(ModelEBase):
     A Model-E implementation using the Gemini 1.5 Flash model.
     """
 
-    def __init__(self, model_name: str = "gemini-1.5-flash"):
+    def __init__(self, model_name: str = "models/gemini-2.5-flash-preview-05-20"):
         super().__init__(model_name)
         client = Client(api_key=GOOGLE_API_KEY)
-        self.model = client.models.get(model_name)
+        self.model = client.models
 
     def generate_response(self, prompt: str, with_cot: bool = False) -> str:
         """
@@ -27,7 +27,19 @@ class GeminiModelE(ModelEBase):
             str: The model's response.
         """
         if with_cot:
-            prompt = "Think step-by-step and then answer the following question. \n\n" + prompt
-        
-        response = self.model.generate_content(prompt)
+            config = types.GenerateContentConfig(
+                thinking_config=types.ThinkingConfig(
+                    thinking_budget=8000,
+                    include_thoughts=True
+                )
+            )
+        else:   
+            config = None
+
+        response = self.model.generate_content(
+            model=self.model_name,
+            contents=prompt,
+            config=config
+        )
+
         return response.text 
