@@ -8,9 +8,9 @@ class DeepSeekModelE(ModelEBase):
     A Model-E implementation using the DeepSeek-R1 Model.
     """
 
-    def __init__(self, model_name: str = "deepseek-ai/deepseek-reasoner"):
+    def __init__(self, model_name: str = "deepseek-reasoner"):
         super().__init__(model_name)
-        client = OpenAI(api_key=DEEP_SEEK_API_KEY)
+        client = OpenAI(api_key=DEEP_SEEK_API_KEY, base_url="https://api.deepseek.com")
         self.model = client.models
 
     def generate_response(self, prompt: str) -> dict:
@@ -26,7 +26,7 @@ class DeepSeekModelE(ModelEBase):
 
         return {
             "response": response_text,
-            "label": 
+            "label": self.parse_response(response_text),
             "thought": thought,
             "thought_steps": thought.split("\n\n")  # Assuming thought steps are separated by double newlines
         }
