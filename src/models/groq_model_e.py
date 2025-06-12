@@ -36,13 +36,12 @@ class GroqModelE(ModelEBase):
             reasoning_format="parsed"
         )
 
-        print(response)
 
         response_text = response.choices[0].message.content
         reasoning = response.choices[0].message.reasoning
         
         # Split the response into thought steps (assuming they're separated by newlines)
-        thought_steps = [step.strip() for step in response_text.split("\n\n") if step.strip()]
+        thought_steps = [step.strip() for step in reasoning.split("\n\n") if step.strip()]
 
         return {
             "response": response_text,
