@@ -3,6 +3,7 @@ import json
 from src.pipeline import Pipeline
 from src.models.model_factory import get_model, SUPPORTED_MODELS
 from src.data_loaders.bbq_dataset import BBQDataset
+import datetime
 
 def main():
     parser = argparse.ArgumentParser(description="Run the bias evaluation pipeline.")
@@ -12,7 +13,7 @@ def main():
                         help="The judge model (Model-J).")
     parser.add_argument("--dataset", type=str, default="bbq", help="The dataset to use.")
     parser.add_argument("--num_samples", type=int, default=10, help="Number of samples to run from the dataset.")
-    parser.add_argument("--output_file", type=str, default="results.json", help="File to save the results.")
+    parser.add_argument("--output_file", type=str, help="File to save the results.")
 
     args = parser.parse_args()
 
@@ -37,9 +38,12 @@ def main():
     print(f"Running on {args.num_samples} samples. ")
     
     results = pipeline.run()
-    
+    if args.output_file:
+        output_file = args.output_file
+    else:   
+        output_file = f"outputs/{args.model_e}_{args.model_j}_{args.dataset}_{args.num_samples}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.json"
     # Save results
-    with open(args.output_file, 'w') as f:
+    with open(output_file, 'w') as f:
         json.dump(results, f, indent=4)
         
     print(f"Pipeline run complete. Results saved to {args.output_file}")
