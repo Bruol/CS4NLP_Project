@@ -17,6 +17,11 @@ def main():
 
     args = parser.parse_args()
 
+    if args.output_file:
+        output_file = args.output_file
+    else:   
+        output_file = f"outputs/{args.model_e.split('/')[-1]}_{args.model_j.split('/')[-1]}_{args.dataset}_{args.num_samples}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.json"
+
     print("Initializing pipeline...")
     
     # Instantiate Model-E
@@ -37,11 +42,7 @@ def main():
     print(f"Running pipeline with Model-E: {args.model_e}, Model-J: {args.model_j}, Dataset: {args.dataset}")
     print(f"Running on {args.num_samples} samples. ")
     
-    results = pipeline.run()
-    if args.output_file:
-        output_file = args.output_file
-    else:   
-        output_file = f"outputs/{args.model_e}_{args.model_j}_{args.dataset}_{args.num_samples}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.json"
+    results = pipeline.run(output_file)
     # Save results
     with open(output_file, 'w') as f:
         json.dump(results, f, indent=4)

@@ -20,7 +20,6 @@ class DeepSeekModelE(ModelEBase):
             messages=messages
         )
 
-        print(response)
 
         thought = response.choices[0].message.reasoning_content
         response_text = response.choices[0].message.content

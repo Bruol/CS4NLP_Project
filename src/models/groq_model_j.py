@@ -51,7 +51,6 @@ class GroqModelJ(ModelJBase):
                 response_format={"type": "json_object"}
             )
 
-            print(response)
 
             return json.loads(response.choices[0].message.content)
         

@@ -3,6 +3,7 @@ from src.data_loaders.base_dataset import BaseDataset
 from typing import List, Dict, Any
 from tqdm import tqdm
 from src.mitigation.adbp_mitigation import mitigate
+import json
 
 class Pipeline:
     """
@@ -22,7 +23,7 @@ class Pipeline:
         self.model_j = model_j
         self.dataset = dataset
 
-    def run(self) -> List[Dict[str, Any]]:
+    def run(self, output_file: str) -> List[Dict[str, Any]]:
         """
         Runs the evaluation pipeline.
 
@@ -39,15 +40,11 @@ class Pipeline:
                 prompt=sample["prompt"], 
             )
 
-            tqdm.write(f"Model-E response: {model_e_response['response']}")
-            tqdm.write(f"Model-E response label: {model_e_response['response_label']}")
-            tqdm.write(f"Model-E thought: {model_e_response['thought']}")
-            tqdm.write(f"Model-E thought steps: {model_e_response['thought_steps']}")
+
 
             # 2. Evaluate the response with Model-J
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
-            tqdm.write(f"Model-J evaluation: {evaluation}")
 
             # if model_e_response["response_label"] != sample["label"]:
             #     # 3. Apply mitigation if answer label is incorrect
@@ -56,7 +53,6 @@ class Pipeline:
             # else:
             #     mitigation_response = None
             
-            # tqdm.write(f"Mitigation response: {mitigation_response}")
 
             # 4. Store the results
             result = {
@@ -66,6 +62,9 @@ class Pipeline:
                 # "mitigation_response": mitigation_response
             }
             results.append(result)
+
+            with open(output_file, 'w') as f:
+                json.dump(results, f, indent=4)
 
             
 
