@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Dict, Any
 from pydantic import BaseModel
+from typing import Optional
 
 class BaseLM(ABC):
     """
@@ -38,7 +39,7 @@ class ModelEBase(BaseLM):
             str: The model's response.
         """
         pass
-    def parse_response(self, response: str) -> int:
+    def parse_response(self, response: str) -> Optional[int]:
         """
         Parses the response from the model and returns the answer label.
         """
