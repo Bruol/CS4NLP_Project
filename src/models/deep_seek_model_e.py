@@ -1,4 +1,4 @@
-from src.models.base_model import ModelEBase, 
+from src.models.base_model import ModelEBase
 from src.config import DEEP_SEEK_API_KEY
 from openai import OpenAI
 
