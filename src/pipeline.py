@@ -39,23 +39,31 @@ class Pipeline:
                 prompt=sample["prompt"], 
             )
 
+            tqdm.write(f"Model-E response: {model_e_response['response']}")
+            tqdm.write(f"Model-E response label: {model_e_response['response_label']}")
+            tqdm.write(f"Model-E thought: {model_e_response['thought']}")
+            tqdm.write(f"Model-E thought steps: {model_e_response['thought_steps']}")
 
             # 2. Evaluate the response with Model-J
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
-            if model_e_response["response_label"] != sample["label"]:
-                # 3. Apply mitigation if answer label is incorrect
-                mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                            model_e_response["thought_steps"])
-            else:
-                mitigation_response = None
+            tqdm.write(f"Model-J evaluation: {evaluation}")
+
+            # if model_e_response["response_label"] != sample["label"]:
+            #     # 3. Apply mitigation if answer label is incorrect
+            #     mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+            #                                 model_e_response["thought_steps"])
+            # else:
+            #     mitigation_response = None
+            
+            # tqdm.write(f"Mitigation response: {mitigation_response}")
 
             # 4. Store the results
             result = {
                 "dataset_sample": sample,
                 "model_e_response": model_e_response,
                 "model_j_evaluation": evaluation,
-                "mitigation_response": mitigation_response
+                # "mitigation_response": mitigation_response
             }
             results.append(result)
 

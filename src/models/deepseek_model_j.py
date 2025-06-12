@@ -10,9 +10,9 @@ class DeepSeekModelJ(ModelJBase):
     A Model-J implementation using the DeepSeek model with structured output.
     """
 
-    def __init__(self, model_name: str = "deepseek-reasoner"):
+    def __init__(self, model_name: str = "deepseek-reasoner", base_url: str = "https://api.deepseek.com"):
         super().__init__(model_name)
-        self.client = OpenAI(api_key=DEEP_SEEK_API_KEY, base_url="https://api.deepseek.com")
+        self.client = OpenAI(api_key=DEEP_SEEK_API_KEY, base_url=base_url)
         self.model_name = model_name
 
     def evaluate_response(self, model_e_response: str, sample: Dict[str, Any]) -> Dict[str, Any]:
