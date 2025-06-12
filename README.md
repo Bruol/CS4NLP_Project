@@ -111,7 +111,7 @@ TODO
 
 ### Datasets
 
-TODO
+Currently, BBQ [7] and StereoSet [9] [10] implemented
 
 ## License
 
@@ -129,3 +129,5 @@ This work is informed by and builds upon the following research:
 [6] [https://arxiv.org/pdf/2403.05518](https://arxiv.org/pdf/2403.05518)  
 [7] [https://arxiv.org/pdf/2110.08193](https://arxiv.org/pdf/2110.08193) (BBQ Dataset)  
 [8] [https://arxiv.org/pdf/2502.17424](https://arxiv.org/pdf/2502.17424)
+[9] [https://github.com/moinnadeem/StereoSet/tree/master] (https://github.com/moinnadeem/StereoSet/tree/master)
+[10] [https://github.com/McGill-NLP/bias-bench/tree/main] (https://github.com/McGill-NLP/bias-bench/tree/main)
