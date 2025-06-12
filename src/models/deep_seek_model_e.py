@@ -10,13 +10,13 @@ class DeepSeekModelE(ModelEBase):
 
     def __init__(self, model_name: str = "deepseek-reasoner"):
         super().__init__(model_name)
-        client = OpenAI(api_key=DEEP_SEEK_API_KEY, base_url="https://api.deepseek.com")
-        self.model = client.models
+        self.client = OpenAI(api_key=DEEP_SEEK_API_KEY, base_url="https://api.deepseek.com")
+        self.model_name = model_name
 
     def generate_response(self, prompt: str) -> dict:
         messages = [{"role": "user", "content": prompt}]
         
-        response = self.model.chat.completions.create(
+        response = self.client.chat.completions.create(
             model=self.model_name,
             messages=messages
         )
