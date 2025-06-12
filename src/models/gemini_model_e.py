@@ -15,7 +15,7 @@ class GeminiModelE(ModelEBase):
         client = Client(api_key=GOOGLE_API_KEY)
         self.model = client.models
 
-    def generate_response(self, prompt: str, with_cot: bool = False) -> Dict[str, Any]:
+    def generate_response(self, prompt: str) -> Dict[str, Any]:
         """
         Generates a response from the Gemini model.
         If with_cot is True, it prefixes the prompt to encourage a chain-of-thought response.
@@ -27,15 +27,12 @@ class GeminiModelE(ModelEBase):
         Returns:
             str: The model's response.
         """
-        if with_cot:
-            config = types.GenerateContentConfig(
-                thinking_config=types.ThinkingConfig(
-                    thinking_budget=8000,
-                    include_thoughts=True
-                )
+        config = types.GenerateContentConfig(
+            thinking_config=types.ThinkingConfig(
+                thinking_budget=8000,
+                include_thoughts=True
             )
-        else:   
-            config = None
+        )
 
         response = self.model.generate_content(
             model=self.model_name,
@@ -46,9 +43,11 @@ class GeminiModelE(ModelEBase):
         try:
             thought_candidate = [part for candidate in response.candidates for part in candidate.content.parts if part.thought]
             thought = thought_candidate[0].text
+            thought_steps = thought.split("\n\n") 
             return {
                 "response": response.text,
-                "thought": thought
+                "thought": thought,
+                "thought_steps": thought_steps
             }
         except IndexError:
             raise IndexError("No thought found in the response")

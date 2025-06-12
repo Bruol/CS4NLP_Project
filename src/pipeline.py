@@ -22,7 +22,7 @@ class Pipeline:
         self.model_j = model_j
         self.dataset = dataset
 
-    def run(self, with_cot: bool = False) -> List[Dict[str, Any]]:
+    def run(self) -> List[Dict[str, Any]]:
         """
         Runs the evaluation pipeline.
 
@@ -37,15 +37,14 @@ class Pipeline:
             # 1. Generate response from Model-E
             model_e_response = self.model_e.generate_response(
                 prompt=sample["prompt"], 
-                with_cot=with_cot
             )
 
             # 2. Evaluate the response with Model-J
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
             # 3. Apply mitigation 
-            mitigation_response = mitigate(lambda x: self.model_e.generate_response(x), sample["prompt"],
-                                           sample["thought"])
+            mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                           model_e_response["thought_steps"])
 
             # 4. Store the results
             result = {

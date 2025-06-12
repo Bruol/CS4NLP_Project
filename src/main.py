@@ -12,7 +12,6 @@ def main():
                         help="The judge model (Model-J).")
     parser.add_argument("--dataset", type=str, default="bbq", help="The dataset to use.")
     parser.add_argument("--num_samples", type=int, default=10, help="Number of samples to run from the dataset.")
-    parser.add_argument("--with_cot", action="store_true", help="Enable chain-of-thought for Model-E.")
     parser.add_argument("--output_file", type=str, default="results.json", help="File to save the results.")
 
     args = parser.parse_args()
@@ -35,17 +34,15 @@ def main():
     pipeline = Pipeline(model_e=model_e, model_j=model_j, dataset=dataset)
     
     print(f"Running pipeline with Model-E: {args.model_e}, Model-J: {args.model_j}, Dataset: {args.dataset}")
-    print(f"Running on {args.num_samples} samples. CoT enabled: {args.with_cot}")
+    print(f"Running on {args.num_samples} samples. ")
     
-    results = pipeline.run(with_cot=args.with_cot)
+    results = pipeline.run()
     
     # Save results
     with open(args.output_file, 'w') as f:
         json.dump(results, f, indent=4)
         
     print(f"Pipeline run complete. Results saved to {args.output_file}")
-    print("Example result:")
-    print(json.dumps(results[0], indent=4))
 
 
 if __name__ == "__main__":

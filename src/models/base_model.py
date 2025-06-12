@@ -26,7 +26,7 @@ class ModelEBase(BaseLM):
     """
 
     @abstractmethod
-    def generate_response(self, prompt: str, with_cot: bool = False) -> Dict[str, Any]:
+    def generate_response(self, prompt: str) -> Dict[str, Any]:
         """
         Generates a response from the model.
 
