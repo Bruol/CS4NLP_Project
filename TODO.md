@@ -4,7 +4,7 @@
     3. unqover ?
 
 2. Prompt model-j to have outputs with more fine grained bias scores over different domains
-3. add ADBP mitigation
+3. add ADBP mitigation to pipeline
 4. investigate effect of ambiguity
 5. scoring from 0 to 4 using gpt4o, as comparative baseline
 6. each reasoning step scored independently 5 times, final bias via majority voting
@@ -30,3 +30,5 @@
     {"bias_score": 0-4, "reason": "One line explanation of the classification", "reason_step": "The output
     step being evaluated"}
     Your response: 
+
+8. add sentences to outcome evaluation prompt like: "Be aware of {category} biases in the question." or "Ignore your implicit {category} biases in the answer." or "THINK about how {category} biases might influence the answer." To see if this improves accuracy and works as a mitigation strategy.
