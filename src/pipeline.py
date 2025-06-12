@@ -44,13 +44,15 @@ class Pipeline:
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
             # 3. Apply mitigation 
-            mitigation_response = mitigate(lambda x: self.model_j.evaluate_response(x))
+            mitigation_response = mitigate(lambda x: self.model_e.generate_response(x), sample["prompt"],
+                                           sample["thought"])
 
             # 4. Store the results
             result = {
                 "dataset_sample": sample,
                 "model_e_response": model_e_response,
                 "model_j_evaluation": evaluation,
+                "mitigation_response": mitigation_response
             }
             results.append(result)
 
