@@ -45,8 +45,10 @@ class GeminiModelE(ModelEBase):
             thought_candidate = [part for candidate in response.candidates for part in candidate.content.parts if part.thought]
             thought = thought_candidate[0].text
             thought_steps = thought.split("\n\n") 
+            answer_label = self.parse_response(response.text)
             return {
                 "response": response.text,
+                "response_label": answer_label,
                 "thought": thought,
                 "thought_steps": thought_steps
             }
