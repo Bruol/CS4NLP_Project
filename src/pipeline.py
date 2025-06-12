@@ -42,9 +42,10 @@ class Pipeline:
             # 2. Evaluate the response with Model-J
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
-            # 3. Apply mitigation 
-            mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                           model_e_response["thought_steps"])
+            if model_e_response != sample["answer_label"]:
+                # 3. Apply mitigation 
+                mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                            model_e_response["thought_steps"])
 
             # 4. Store the results
             result = {
