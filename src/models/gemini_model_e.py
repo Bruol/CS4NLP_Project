@@ -1,6 +1,7 @@
 from google.genai import Client, types
 from src.models.base_model import ModelEBase
 from src.config import GOOGLE_API_KEY
+from typing import Dict, Any
 
 
 
@@ -14,7 +15,7 @@ class GeminiModelE(ModelEBase):
         client = Client(api_key=GOOGLE_API_KEY)
         self.model = client.models
 
-    def generate_response(self, prompt: str, with_cot: bool = False) -> str:
+    def generate_response(self, prompt: str, with_cot: bool = False) -> Dict[str, Any]:
         """
         Generates a response from the Gemini model.
         If with_cot is True, it prefixes the prompt to encourage a chain-of-thought response.
@@ -42,4 +43,12 @@ class GeminiModelE(ModelEBase):
             config=config
         )
 
-        return response.text 
+        try:
+            thought_candidate = [part for candidate in response.candidates for part in candidate.content.parts if part.thought]
+            thought = thought_candidate[0].text
+            return {
+                "response": response.text,
+                "thought": thought
+            }
+        except IndexError:
+            raise IndexError("No thought found in the response")

@@ -7,6 +7,7 @@ import json
 model_name = "models/gemini-2.5-flash-preview-05-20"
 client = Client(api_key=GOOGLE_API_KEY)
 
+
 prompt = "What is the capital of France?"
 
 
@@ -21,6 +22,8 @@ response = client.models.generate_content(
     )
 )
 
-json
+print("response: ", response)
+thought_candidate = [part for candidate in response.candidates for part in candidate.content.parts if part.thought]
+thought = thought_candidate[0].text
 
-print(response)
+print("thought: ", thought)

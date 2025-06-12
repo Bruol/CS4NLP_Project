@@ -40,7 +40,7 @@ class Pipeline:
             )
 
             # 2. Evaluate the response with Model-J
-            evaluation = self.model_j.evaluate_response(model_e_response)
+            evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
             # 3. Store the results
             result = {
