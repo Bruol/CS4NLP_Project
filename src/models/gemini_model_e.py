@@ -14,6 +14,7 @@ class GeminiModelE(ModelEBase):
         super().__init__(model_name)
         client = Client(api_key=GOOGLE_API_KEY)
         self.model = client.models
+        self.model_name = model_name
 
     def generate_response(self, prompt: str) -> Dict[str, Any]:
         """

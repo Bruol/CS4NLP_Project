@@ -15,6 +15,7 @@ class GeminiModelJ(ModelJBase):
     def __init__(self, model_name: str = "models/gemini-2.5-flash-preview-05-20"):
         super().__init__(model_name)
         client = Client(api_key=GOOGLE_API_KEY)
+        self.model_name = model_name
         self.model = client.models
 
 
