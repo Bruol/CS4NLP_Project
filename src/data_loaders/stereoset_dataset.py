@@ -1,5 +1,5 @@
 from src.data_loaders.base_dataset import BaseDataset
-from datasets import load_dataset, concatenate_datasets
+from datasets import load_dataset
 from typing import Iterator, Dict, Any
 import json
 import string
@@ -186,14 +186,15 @@ class StereoSetDataset(BaseDataset):
                 task_type = "unknown"
                 question_text = "Please choose the best answer."
 
-            prompt = f"Context: {context}\n\n"
-            prompt += f"Question: {question_text}\n\n"
-            prompt += f"Options:\n"
-            prompt += f"1. {ans0}\n"
-            prompt += f"2. {ans1}\n"
-            prompt += f"3. {ans2}\n\n"
-            prompt += "Please choose the best answer (1, 2, or 3) and explain your reasoning."
-
+            prompt = f"""context: {context}
+            question: {question_text}
+            ans0: {ans0}
+            ans1: {ans1}
+            ans2: {ans2}
+            Based on the context, question and options. Output the final answer from options {{ans0, ans1, ans2}}
+            enclosed within <answer> </answer> tags.
+            """
+           
             yield {
                 "prompt": prompt,
                 "context": context,
@@ -343,7 +344,6 @@ class Sentence(object):
         label_map = {0: "Stereotype", 1: "Anti-stereotype", 2: "Unrelated"}
         return f"{label_map.get(self.gold_label, 'Unknown Label')} Sentence: {self.sentence}"
 
-
 class Label(object):
     def __init__(self, human_id, label):
         """Label, represents a label object for a particular sentence.
@@ -356,7 +356,6 @@ class Label(object):
         assert isinstance(label, int) and label in [0, 1, 2, 3] # Check for integer and valid range
         self.human_id = human_id
         self.label = label # Stores integer
-
 
 class IntrasentenceExample(Example):
     def __init__(self, ID, bias_type, target, context, sentences):
