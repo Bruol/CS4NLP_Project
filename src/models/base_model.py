@@ -38,6 +38,15 @@ class ModelEBase(BaseLM):
             str: The model's response.
         """
         pass
+    def parse_response(self, response: str) -> int:
+        """
+        Parses the response from the model and returns the answer label.
+        """
+        try:    
+            answer_label = int(response.split("<answer>")[1].split("</answer>")[0].strip().split("ans")[1])
+        except IndexError:
+            answer_label = None
+        return answer_label
 
 
 class ModelJResponse(BaseModel):
