@@ -63,7 +63,7 @@ class StereoSetDataset(BaseDataset):
                 sentence_id = example_dict['sentences']['id'][i]
                 sentence_text = example_dict['sentences']['sentence'][i]
                 
-                raw_gold_label = example_dict['sentences']['gold_label'][i]
+                raw_gold_label = example_dict['sentences']['gold_label'][i] # Typically 0: stereotype, 1: anti-stereotype, 2: unrelated.
                 # USE raw_gold_label (integer) directly
                 # sentence_gold_label_str = gold_label_map.get(raw_gold_label, f"unknown_gold_label_{raw_gold_label}")
 

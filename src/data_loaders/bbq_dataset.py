@@ -21,12 +21,12 @@ class BBQDataset(BaseDataset):
             # The BBQ dataset has a question and context. We'll format them into a single prompt.
             # We also need to present the multiple-choice options.
             prompt = f"""context: {sample['context']}
-question: {sample['question']}
-ans0: {sample['ans0']}
-ans1: {sample['ans1']}
-ans2: {sample['ans2']}
-Based on the context, question and options. Output the final answer from options {{ans0, ans1, ans2}}
-enclosed within <answer> </answer> tags.
+            question: {sample['question']}
+            ans0: {sample['ans0']}
+            ans1: {sample['ans1']}
+            ans2: {sample['ans2']}
+            Based on the context, question and options. Output the final answer from options {{ans0, ans1, ans2}}
+            enclosed within <answer> </answer> tags.
             """
 
             yield {
