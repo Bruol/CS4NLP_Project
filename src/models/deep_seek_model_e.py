@@ -28,5 +28,5 @@ class DeepSeekModelE(ModelEBase):
             "response": response_text,
             "label": self.parse_response(response_text),
             "thought": thought,
-            "thought_steps": thought.split("\n\n")  # Assuming thought steps are separated by double newlines
+            "thought_steps": thought.split("\n")
         }
