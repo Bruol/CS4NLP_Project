@@ -1,5 +1,5 @@
 from src.models.base_model import ModelEBase, ModelJBase
-from src.datasets.base_dataset import BaseDataset
+from src.data_loaders.base_dataset import BaseDataset
 from typing import List, Dict, Any
 from tqdm import tqdm
 from src.mitigation.adbp_mitigation import mitigate
@@ -41,7 +41,7 @@ class Pipeline:
             )
 
             # 2. Evaluate the response with Model-J
-            evaluation = self.model_j.evaluate_response(model_e_response)
+            evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
             # 3. Apply mitigation 
             mitigation_response = mitigate(lambda x: self.model_j.evaluate_response(x))

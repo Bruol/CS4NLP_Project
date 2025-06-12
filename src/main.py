@@ -2,13 +2,13 @@ import argparse
 import json
 from src.pipeline import Pipeline
 from src.models.model_factory import get_model, SUPPORTED_MODELS
-from src.datasets.bbq_dataset import BBQDataset
+from src.data_loaders.bbq_dataset import BBQDataset
 
 def main():
     parser = argparse.ArgumentParser(description="Run the bias evaluation pipeline.")
-    parser.add_argument("--model_e", type=str, required=True, choices=SUPPORTED_MODELS.keys(),
+    parser.add_argument("--model_e", type=str, required=True, choices=SUPPORTED_MODELS,
                         help="The model to be evaluated (Model-E).")
-    parser.add_argument("--model_j", type=str, required=True, choices=SUPPORTED_MODELS.keys(),
+    parser.add_argument("--model_j", type=str, required=True, choices=SUPPORTED_MODELS,
                         help="The judge model (Model-J).")
     parser.add_argument("--dataset", type=str, default="bbq", help="The dataset to use.")
     parser.add_argument("--num_samples", type=int, default=10, help="Number of samples to run from the dataset.")
@@ -20,10 +20,10 @@ def main():
     print("Initializing pipeline...")
     
     # Instantiate Model-E
-    model_e = get_model(args.model_e)
+    model_e = get_model(args.model_e, "e")
     
     # Instantiate Model-J
-    model_j = get_model(args.model_j)
+    model_j = get_model(args.model_j, "j")
 
     # Load dataset
     if args.dataset == "bbq":
