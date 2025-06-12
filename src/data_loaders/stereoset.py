@@ -1,4 +1,4 @@
-from src.datasets.base_dataset import BaseDataset
+from src.data_loaders.base_dataset import BaseDataset
 from datasets import load_dataset, concatenate_datasets
 from typing import Iterator, Dict, Any
 import json
