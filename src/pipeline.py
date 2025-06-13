@@ -48,7 +48,7 @@ class Pipeline:
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
 
-            if model_e_response["response_label"] != sample["label"] and self.mitigation == "adbp":
+            if self.mitigation == "adbp":
                 # 3. Apply mitigation if answer label is incorrect
                 mitigation_response, per_step_answers = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
                                             model_e_response["thought_steps"])
