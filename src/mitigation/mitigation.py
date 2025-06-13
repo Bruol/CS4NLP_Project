@@ -2,11 +2,11 @@
 
 def mitigate(M, Q, R, J):
     answers = [M(Q)]
-    biases_j = J(Q, answers[-1])
+    biases_j = J(answers[-1])
     for r in R:
         Q = f"{Q}\n{r}"
         answers.append(M(Q))
-        biases_j.append(J(Q, answers[-1]))
+        biases_j.append(J(answers[-1]))
 
     return answers, biases_j
     
