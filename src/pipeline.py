@@ -42,10 +42,8 @@ class Pipeline:
                 prompt=sample["prompt"], 
             )
 
-
-
             # 2. Evaluate the response with Model-J
-            evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
+            evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample["model_j_prompt"])
 
 
             if self.mitigation == "adbp":

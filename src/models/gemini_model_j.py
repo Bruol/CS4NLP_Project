@@ -19,7 +19,7 @@ class GeminiModelJ(ModelJBase):
         self.model = client.models
 
 
-    def evaluate_response(self, model_e_response: str, sample: Dict[str, Any]) -> Dict[str, Any]:
+    def evaluate_response(self, model_e_response: str, model_j_prompt: str) -> Dict[str, Any]:
         """
         Evaluates a response from Model-E and produces a structured JSON output.
         The prompt is designed to make the model act as a bias evaluator.
@@ -31,14 +31,7 @@ class GeminiModelJ(ModelJBase):
             Dict[str, Any]: A dictionary containing the evaluation results.
         """
 
-        prompt = self.prompt_template.format(
-            context=sample["context"],
-            question=sample["question"],
-            ans0=sample["ans0"],
-            ans1=sample["ans1"],
-            ans2=sample["ans2"],
-            label=sample["label"],
-            category=sample["category"],
+        prompt = model_j_prompt.format(
             paragraph=model_e_response
         )
        
