@@ -25,7 +25,7 @@ def main():
     if args.output_file:
         output_file = args.output_file
     else:   
-        output_file = f"outputs/{args.model_e.split('/')[-1]}_{args.model_j.split('/')[-1]}_{args.dataset}_{args.num_samples}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.json"
+        output_file = f"../outputs/{args.model_e.split('/')[-1]}_{args.model_j.split('/')[-1]}_{args.dataset}_{args.num_samples}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.json"
 
     print("Initializing pipeline...")
     
