@@ -23,7 +23,7 @@ def mitigate(M, Q, R):
         answers.append(M(current_question))
 
     if all(a == answers[0] for a in answers):
-        return answers[0]
+        return {answers[0], answers}
     else:
         a_last = answers[-1]
         a_common = max(set(answers), key=answers.count)
@@ -38,4 +38,4 @@ def mitigate(M, Q, R):
                 Verify them to see if there is any bias and output the answer."""
 
         ans = M(adbp_prompt)
-        return ans
+        return {ans, answers}

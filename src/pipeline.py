@@ -48,24 +48,23 @@ class Pipeline:
 
             if self.mitigation == "adbp":
                 # 3. Apply mitigation if answer label is incorrect
-                mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                mitigation_response, per_step_answers = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
                                             model_e_response["thought_steps"])
             else:
                 mitigation_response = None
-            
+                per_step_answers = None
 
             # 4. Store the results
             result = {
                 "dataset_sample": sample,
                 "model_e_response": model_e_response,
                 "model_j_evaluation": evaluation,
-                "mitigation_response": mitigation_response
+                "mitigation_response": mitigation_response,
+                "per_step_answers": per_step_answers
             }
             results.append(result)
 
             with open(output_file, 'w') as f:
                 json.dump(results, f, indent=4)
 
-            
-
-        return results 
+        return results
