@@ -3,7 +3,7 @@ from data_loaders.base_dataset import BaseDataset
 from data_loaders.mitigation_dataset import MitigationDataset
 from typing import List, Dict, Any
 from tqdm import tqdm
-from mitigation.adbp_mitigation import mitigate
+from mitigation.mitigation import mitigate_adbp, mitigate_sfrp
 import json
 
 class Pipeline:
@@ -50,11 +50,16 @@ class Pipeline:
 
             if self.mitigation == "adbp":
                 # 3. Apply mitigation if answer label is incorrect
-                mitigation_response, per_step_answers = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                            model_e_response["thought_steps"])
+                mitigation_response, per_step_answers, per_step_biases = mitigate_adbp(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                            model_e_response["thought_steps"], self.model_j.evaluate_response)
+            elif self.mitigation == "sfrp":
+                # 3. Apply mitigation if answer label is incorrect
+                mitigation_response, per_step_answers, per_step_biases = mitigate_sfrp(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                            model_e_response["thought_steps"], self.model_j.evaluate_response)
             else:
                 mitigation_response = None
                 per_step_answers = None
+                per_step_biases = None
 
             # 4. Store the results
             result = {
@@ -62,7 +67,8 @@ class Pipeline:
                 "model_e_response": model_e_response,
                 "model_j_evaluation": evaluation,
                 "mitigation_response": mitigation_response,
-                "per_step_answers": per_step_answers
+                "per_step_answers": per_step_answers,
+                "per_step_biases": per_step_biases
             }
             results.append(result)
 
