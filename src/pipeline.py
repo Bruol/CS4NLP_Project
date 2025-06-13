@@ -1,5 +1,6 @@
 from models.base_model import ModelEBase, ModelJBase
 from data_loaders.base_dataset import BaseDataset
+from data_loaders.mitigation_dataset import MitigationDataset
 from typing import List, Dict, Any
 from tqdm import tqdm
 from mitigation.adbp_mitigation import mitigate
@@ -10,7 +11,7 @@ class Pipeline:
     The main pipeline for running the bias evaluation.
     """
 
-    def __init__(self, model_e: ModelEBase, model_j: ModelJBase, dataset: BaseDataset):
+    def __init__(self, model_e: ModelEBase, model_j: ModelJBase, dataset: BaseDataset, mitigation: str = "disabled"):
         """
         Initializes the pipeline.
 
@@ -22,6 +23,7 @@ class Pipeline:
         self.model_e = model_e
         self.model_j = model_j
         self.dataset = dataset
+        self.mitigation = mitigation
 
     def run(self, output_file: str) -> List[Dict[str, Any]]:
         """
@@ -46,7 +48,7 @@ class Pipeline:
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
 
-            if model_e_response["response_label"] != sample["label"]:
+            if model_e_response["response_label"] != sample["label"] and self.mitigation == "adbp":
                 # 3. Apply mitigation if answer label is incorrect
                 mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
                                             model_e_response["thought_steps"])
