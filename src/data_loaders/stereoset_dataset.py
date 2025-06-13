@@ -16,14 +16,14 @@ class StereoSetDataset(BaseDataset):
     configurations for a given split into structured Example objects.
     """
 
-    def __init__(self, split: str = "validation", num_samples: int = None): # Default split to "validation"
-        super().__init__(f"StereoSet_Processed_{split}") 
-        
+    def __init__(self, num_samples: int = None): # Default split to "validation"
+        super().__init__(f"StereoSet_Processed")
+
         try:
-            intrasentence_data_raw = load_dataset("McGill-NLP/StereoSet", name="intrasentence", split=split)
-            intersentence_data_raw = load_dataset("McGill-NLP/StereoSet", name="intersentence", split=split)
+            intrasentence_data_raw = load_dataset("McGill-NLP/StereoSet", name="intrasentence", split="validation")
+            intersentence_data_raw = load_dataset("McGill-NLP/StereoSet", name="intersentence", split="validation")
         except Exception as e:
-            print(f"Error loading dataset split '{split}'. Ensure it's a valid split (e.g., 'validation', 'test').")
+            print(f"Error loading dataset")
             raise e
 
         processed_intrasentence_examples = self._create_intrasentence_examples_from_hf(intrasentence_data_raw)

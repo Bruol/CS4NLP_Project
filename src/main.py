@@ -52,15 +52,15 @@ def main():
             raise ValueError(f"Mitigation '{args.mitigation}' not supported for dataset '{args.dataset}'.")
     elif args.dataset == "stereoset": ##TODO: Add support for Stereoset dataset
         if args.mitigation == "disabled" or args.mitigation == "adbp":
-            dataset = StereoSetDataset(split="validation", num_samples=args.num_samples)
+            dataset = StereoSetDataset(num_samples=args.num_samples)
         elif args.mitigation == "awareness":
-            dataset = MitigationDataset(dataset=StereoSetDataset(split="validation", num_samples=args.num_samples), 
+            dataset = MitigationDataset(dataset=StereoSetDataset(num_samples=args.num_samples), 
                                             bias_awareness="Be aware of potential bias in the question or context.")
         elif args.mitigation == "category":
-            dataset = MitigationDataset(dataset=StereoSetDataset(split="validation", num_samples=args.num_samples), 
+            dataset = MitigationDataset(dataset=StereoSetDataset(num_samples=args.num_samples), 
                                             bias_awareness="Be aware of potential {category} bias in the question or context.")
         elif args.mitigation == "cot":
-            dataset = MitigationDataset(dataset=StereoSetDataset(split="validation", num_samples=args.num_samples), 
+            dataset = MitigationDataset(dataset=StereoSetDataset(num_samples=args.num_samples), 
                                             bias_awareness="Be aware of potential bias in the question or context. Use chain-of-thought reasoning to mitigate bias.")
         else:
             raise ValueError(f"Mitigation '{args.mitigation}' not supported for dataset '{args.dataset}'.")
