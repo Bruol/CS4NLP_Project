@@ -1,9 +1,9 @@
 from google.genai import Client, types
-from src.models.base_model import ModelJBase
-from src.config import GOOGLE_API_KEY
+from models.base_model import ModelJBase
+from config import GOOGLE_API_KEY
 from typing import Dict, Any
 import json
-from src.models.base_model import ModelJResponse
+from models.base_model import ModelJResponse
 
 
 

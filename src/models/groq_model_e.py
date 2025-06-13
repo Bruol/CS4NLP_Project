@@ -1,6 +1,6 @@
-from src.models.base_model import ModelEBase
+from models.base_model import ModelEBase
 from groq import Groq
-from src.config import GROQ_API_KEY
+from config import GROQ_API_KEY
 from typing import Dict, Any
 
 

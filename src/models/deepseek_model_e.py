@@ -1,6 +1,6 @@
-from src.models.base_model import ModelEBase
+from models.base_model import ModelEBase
 from openai import OpenAI
-from src.config import DEEP_SEEK_API_KEY
+from config import DEEP_SEEK_API_KEY
 
 class DeepSeekModelE(ModelEBase):
     """

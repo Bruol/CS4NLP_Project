@@ -1,6 +1,6 @@
 from google.genai import Client, types
-from src.models.base_model import ModelEBase
-from src.config import GOOGLE_API_KEY
+from models.base_model import ModelEBase
+from config import GOOGLE_API_KEY
 from typing import Dict, Any
 
 

@@ -1,15 +1,15 @@
-from src.models.base_model import BaseLM
-from src.models.gemini_model_e import GeminiModelE
-from src.models.gemini_model_j import GeminiModelJ
-from src.models.openai_model_e import OpenAIModelE
-from src.models.openai_model_j import OpenAIModelJ
-from src.models.deepseek_model_e import DeepSeekModelE
-from src.models.deepseek_model_j import DeepSeekModelJ
-from src.models.groq_model_e import GroqModelE
-from src.models.groq_model_j import GroqModelJ
-from src.config import DEEP_SEEK_API_KEY
-from src.config import GROQ_API_KEY
-from src.config import OPENAI_API_KEY
+from models.base_model import BaseLM
+from models.gemini_model_e import GeminiModelE
+from models.gemini_model_j import GeminiModelJ
+from models.openai_model_e import OpenAIModelE
+from models.openai_model_j import OpenAIModelJ
+from models.deepseek_model_e import DeepSeekModelE
+from models.deepseek_model_j import DeepSeekModelJ
+from models.groq_model_e import GroqModelE
+from models.groq_model_j import GroqModelJ
+from config import DEEP_SEEK_API_KEY
+from config import GROQ_API_KEY
+from config import OPENAI_API_KEY
 
 SUPPORTED_MODELS = {
     "google/gemini-2.5-flash": "gemini-2.5-flash-preview-05-20",

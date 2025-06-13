@@ -1,6 +1,6 @@
 from openai import OpenAI
-from src.models.base_model import ModelJBase, ModelJResponse
-from src.config import DEEP_SEEK_API_KEY
+from models.base_model import ModelJBase, ModelJResponse
+from config import DEEP_SEEK_API_KEY
 from typing import Dict, Any
 import json
 

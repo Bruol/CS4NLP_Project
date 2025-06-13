@@ -1,9 +1,9 @@
 from openai import OpenAI
-from src.models.base_model import ModelJBase, ModelJResponse
-from src.config import OPENAI_API_KEY
+from models.base_model import ModelJBase, ModelJResponse
+from config import OPENAI_API_KEY
 from typing import Dict, Any
 import json
-from src.models.base_model import ModelJResponse
+from models.base_model import ModelJResponse
 
 
 class OpenAIModelJ(ModelJBase):

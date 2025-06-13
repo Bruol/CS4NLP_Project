@@ -1,6 +1,6 @@
 from groq import Groq
-from src.models.base_model import ModelJBase, ModelJResponse
-from src.config import GROQ_API_KEY
+from models.base_model import ModelJBase, ModelJResponse
+from config import GROQ_API_KEY
 from typing import Dict, Any
 import json
 

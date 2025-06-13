@@ -1,5 +1,5 @@
 from google.genai import Client, types
-from src.config import GOOGLE_API_KEY, DEEP_SEEK_API_KEY, OPENAI_API_KEY
+from config import GOOGLE_API_KEY, DEEP_SEEK_API_KEY, OPENAI_API_KEY
 from openai import OpenAI
 import json
 from pydantic import BaseModel

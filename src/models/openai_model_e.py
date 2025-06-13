@@ -1,7 +1,7 @@
-from src.models.base_model import ModelEBase
+from models.base_model import ModelEBase
 from pydantic import BaseModel
 from openai import OpenAI
-from src.config import OPENAI_API_KEY
+from config import OPENAI_API_KEY
 
 REASONING_EFFORTS = ["low", "medium", "high"]
 

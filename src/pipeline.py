@@ -1,8 +1,8 @@
-from src.models.base_model import ModelEBase, ModelJBase
-from src.data_loaders.base_dataset import BaseDataset
+from models.base_model import ModelEBase, ModelJBase
+from data_loaders.base_dataset import BaseDataset
 from typing import List, Dict, Any
 from tqdm import tqdm
-from src.mitigation.adbp_mitigation import mitigate
+from mitigation.adbp_mitigation import mitigate
 import json
 
 class Pipeline:
@@ -46,12 +46,12 @@ class Pipeline:
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample)
 
 
-            # if model_e_response["response_label"] != sample["label"]:
-            #     # 3. Apply mitigation if answer label is incorrect
-            #     mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-            #                                 model_e_response["thought_steps"])
-            # else:
-            #     mitigation_response = None
+            if model_e_response["response_label"] != sample["label"]:
+                # 3. Apply mitigation if answer label is incorrect
+                mitigation_response = mitigate(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                            model_e_response["thought_steps"])
+            else:
+                mitigation_response = None
             
 
             # 4. Store the results
