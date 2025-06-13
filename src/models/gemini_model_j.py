@@ -31,9 +31,7 @@ class GeminiModelJ(ModelJBase):
             Dict[str, Any]: A dictionary containing the evaluation results.
         """
 
-        prompt = model_j_prompt.format(
-            paragraph=model_e_response
-        )
+        prompt = model_j_prompt.replace("%paragraph%", model_e_response)
        
         
         response = self.model.generate_content(
