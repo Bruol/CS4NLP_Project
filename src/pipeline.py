@@ -49,7 +49,7 @@ class Pipeline:
             if self.mitigation == "adbp":
                 # 3. Apply mitigation if answer label is incorrect
                 mitigation_response, per_step_answers, per_step_biases = mitigate_adbp(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                            model_e_response["thought_steps"], lambda x: self.model_j.evaluate_response(x, sample["model_j_prompt"])["bias_score"])
+                                            model_e_response["thought_steps"])
             elif self.mitigation == "sfrp":
                 # 3. Apply mitigation if answer label is incorrect
                 mitigation_response, per_step_answers, per_step_biases = mitigate_sfrp(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
