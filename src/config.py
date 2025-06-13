@@ -29,9 +29,3 @@ OPENAI_AZURE_API_KEY = os.getenv("OPENAI_AZURE_API_KEY")
 
 if not OPENAI_AZURE_API_KEY:
     raise ValueError("OPENAI_AZURE_API_KEY not found in environment variables. Please set it in your .env file.")
-
-print("OPENAI_AZURE_API_KEY", OPENAI_AZURE_API_KEY)
-print("OPENAI_API_KEY", OPENAI_API_KEY)
-print("DEEP_SEEK_API_KEY", DEEP_SEEK_API_KEY)
-print("GROQ_API_KEY", GROQ_API_KEY)
-print("GOOGLE_API_KEY", GOOGLE_API_KEY)

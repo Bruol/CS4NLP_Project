@@ -16,7 +16,7 @@ class OpenAIModelJ(ModelJBase):
         super().__init__(model_name)
         if Azure:
             endpoint = "https://lurba-mbuxinhu-swedencentral.cognitiveservices.azure.com/"
-            deployment = "gpt-4o"
+            deployment = model_name
             subscription_key = OPENAI_AZURE_API_KEY
             api_version = "2025-03-01-preview"
             self.client = AzureOpenAI(
@@ -52,7 +52,6 @@ class OpenAIModelJ(ModelJBase):
                 text_format=ModelJResponse
             )
             
-            print("response", response)
 
             return response.output_parsed.model_dump()
         

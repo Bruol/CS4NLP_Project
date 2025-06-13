@@ -1,7 +1,7 @@
 from models.base_model import ModelEBase
 from pydantic import BaseModel
-from openai import OpenAI
-from config import OPENAI_API_KEY
+from openai import OpenAI, AzureOpenAI
+from config import OPENAI_API_KEY, OPENAI_AZURE_API_KEY
 
 REASONING_EFFORTS = ["low", "medium", "high"]
 
@@ -14,9 +14,20 @@ class OpenAIModelE(ModelEBase):
     A Model-E implementation using the DeepSeek-R1 Model.
     """
 
-    def __init__(self, model_name: str, reasoning_effort: str = "medium"):
+    def __init__(self, model_name: str, reasoning_effort: str = "medium", Azure: bool = True):
         super().__init__(model_name)
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+        if Azure:
+                endpoint = "https://lurba-mbuxinhu-swedencentral.cognitiveservices.azure.com/"
+                deployment = model_name
+                subscription_key = OPENAI_AZURE_API_KEY
+                api_version = "2025-03-01-preview"
+                self.client = AzureOpenAI(
+                                api_version=api_version,
+                                azure_endpoint=endpoint,
+                                api_key=subscription_key,
+                            )       
+        else:
+                self.client = OpenAI(api_key=OPENAI_API_KEY)
         self.model_name = model_name
         self.reasoning_effort = reasoning_effort if reasoning_effort in REASONING_EFFORTS else "medium"
 

@@ -27,7 +27,6 @@ class MitigationDataset(BaseDataset):
             enclosed within <answer> </answer> tags. {self.bias_awareness.format(category=sample["category"] if "category" in self.bias_awareness else "")}
             """
 
-            print(prompt)
 
             yield {
                 "prompt": prompt,

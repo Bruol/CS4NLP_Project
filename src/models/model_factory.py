@@ -14,7 +14,6 @@ SUPPORTED_MODELS = {
     "deepseek-ai/deepseek-r1": "deepseek-reasoner",
     "groq/deepseek-r1-distill-llama": "deepseek-r1-distill-llama-70b",
     "groq/llama-3.3": "llama-3.3-70b-versatile",
-    "groq/deepseek-r1-distill-qwen": "deepseek-r1-distill-qwen-32b",
     "openai/o4-mini": "o4-mini",
     "openai/gpt-4o": "gpt-4o"
 }
