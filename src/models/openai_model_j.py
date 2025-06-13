@@ -1,6 +1,7 @@
-from openai import OpenAI
+from openai import OpenAI, AzureOpenAI
 from models.base_model import ModelJBase, ModelJResponse
 from config import OPENAI_API_KEY
+from config import OPENAI_AZURE_API_KEY
 from typing import Dict, Any
 import json
 from models.base_model import ModelJResponse
@@ -11,9 +12,20 @@ class OpenAIModelJ(ModelJBase):
     A Model-J implementation using the DeepSeek model with structured output.
     """
 
-    def __init__(self, model_name: str):
+    def __init__(self, model_name: str, Azure: bool = True):
         super().__init__(model_name)
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+        if Azure:
+            endpoint = "https://lurba-mbuxinhu-swedencentral.cognitiveservices.azure.com/"
+            deployment = "gpt-4o"
+            subscription_key = OPENAI_AZURE_API_KEY
+            api_version = "2025-03-01-preview"
+            self.client = AzureOpenAI(
+                            api_version=api_version,
+                            azure_endpoint=endpoint,
+                            api_key=subscription_key,
+                        )       
+        else:
+            self.client = OpenAI(api_key=OPENAI_API_KEY)
         self.model_name = model_name
 
     def evaluate_response(self, model_e_response: str, model_j_prompt: str) -> Dict[str, Any]:
@@ -40,6 +52,8 @@ class OpenAIModelJ(ModelJBase):
                 text_format=ModelJResponse
             )
             
+            print("response", response)
+
             return response.output_parsed.model_dump()
         
         except Exception as e:

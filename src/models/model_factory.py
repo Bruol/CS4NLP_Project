@@ -7,9 +7,6 @@ from models.deepseek_model_e import DeepSeekModelE
 from models.deepseek_model_j import DeepSeekModelJ
 from models.groq_model_e import GroqModelE
 from models.groq_model_j import GroqModelJ
-from config import DEEP_SEEK_API_KEY
-from config import GROQ_API_KEY
-from config import OPENAI_API_KEY
 
 SUPPORTED_MODELS = {
     "google/gemini-2.5-flash": "gemini-2.5-flash-preview-05-20",
@@ -17,6 +14,7 @@ SUPPORTED_MODELS = {
     "deepseek-ai/deepseek-r1": "deepseek-reasoner",
     "groq/deepseek-r1-distill-llama": "deepseek-r1-distill-llama-70b",
     "groq/llama-3.3": "llama-3.3-70b-versatile",
+    "groq/deepseek-r1-distill-qwen": "deepseek-r1-distill-qwen-32b",
     "openai/o4-mini": "o4-mini",
     "openai/gpt-4o": "gpt-4o"
 }

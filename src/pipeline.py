@@ -38,9 +38,13 @@ class Pipeline:
         results = []
         for sample in tqdm(self.dataset, desc="Running evaluation"):
             # 1. Generate response from Model-E
-            model_e_response = self.model_e.generate_response(
-                prompt=sample["prompt"], 
-            )
+            try:
+                model_e_response = self.model_e.generate_response(
+                    prompt=sample["prompt"], 
+                )
+            except Exception as e:
+                print(f"Error generating response: {e}")
+                continue
 
             # 2. Evaluate the response with Model-J
             evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample["model_j_prompt"])
