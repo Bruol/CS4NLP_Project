@@ -3,6 +3,7 @@ import json
 from pipeline import Pipeline
 from models.model_factory import get_model, SUPPORTED_MODELS
 from data_loaders.bbq_dataset import BBQDataset
+from data_loaders.stereoset_dataset import StereoSetDataset
 from data_loaders.mitigation_dataset import MitigationDataset
 import datetime
 
@@ -35,17 +36,34 @@ def main():
     model_j = get_model(args.model_j, "j")
 
     # Load dataset
-    if args.dataset == "bbq" and (args.mitigation == "disabled" or args.mitigation == "adbp"):
-        dataset = BBQDataset(num_samples=args.num_samples)
-    if args.dataset == "bbq" and args.mitigation == "awareness":
-        dataset = MitigationDataset(dataset=BBQDataset(num_samples=args.num_samples), 
-                                        bias_awareness="Be aware of potential bias in the question or context.")
-    elif args.dataset == "bbq" and args.mitigation == "category":
-        dataset = MitigationDataset(dataset=BBQDataset(num_samples=args.num_samples), 
-                                        bias_awareness="Be aware of potential {category} bias in the question or context.")
-    elif args.dataset == "bbq" and args.mitigation == "cot":
-        dataset = MitigationDataset(dataset=BBQDataset(num_samples=args.num_samples), 
-                                        bias_awareness="Be aware of potential bias in the question or context. Use chain-of-thought reasoning to mitigate bias.")
+    if args.dataset == "bbq":
+        if args.mitigation == "disabled" or args.mitigation == "adbp":
+            dataset = BBQDataset(num_samples=args.num_samples)
+        elif args.mitigation == "awareness":
+            dataset = MitigationDataset(dataset=BBQDataset(num_samples=args.num_samples), 
+                                            bias_awareness="Be aware of potential bias in the question or context.")
+        elif args.mitigation == "category":
+            dataset = MitigationDataset(dataset=BBQDataset(num_samples=args.num_samples), 
+                                            bias_awareness="Be aware of potential {category} bias in the question or context.")
+        elif args.mitigation == "cot":
+            dataset = MitigationDataset(dataset=BBQDataset(num_samples=args.num_samples), 
+                                            bias_awareness="Be aware of potential bias in the question or context. Use chain-of-thought reasoning to mitigate bias.")
+        else:
+            raise ValueError(f"Mitigation '{args.mitigation}' not supported for dataset '{args.dataset}'.")
+    elif args.dataset == "stereoset": ##TODO: Add support for Stereoset dataset
+        if args.mitigation == "disabled" or args.mitigation == "adbp":
+            dataset = StereoSetDataset(split="validation", num_samples=args.num_samples)
+        elif args.mitigation == "awareness":
+            dataset = MitigationDataset(dataset=StereoSetDataset(split="validation", num_samples=args.num_samples), 
+                                            bias_awareness="Be aware of potential bias in the question or context.")
+        elif args.mitigation == "category":
+            dataset = MitigationDataset(dataset=StereoSetDataset(split="validation", num_samples=args.num_samples), 
+                                            bias_awareness="Be aware of potential {category} bias in the question or context.")
+        elif args.mitigation == "cot":
+            dataset = MitigationDataset(dataset=StereoSetDataset(split="validation", num_samples=args.num_samples), 
+                                            bias_awareness="Be aware of potential bias in the question or context. Use chain-of-thought reasoning to mitigate bias.")
+        else:
+            raise ValueError(f"Mitigation '{args.mitigation}' not supported for dataset '{args.dataset}'.")
     else:
         raise ValueError(f"Dataset '{args.dataset}' not supported.")
 
