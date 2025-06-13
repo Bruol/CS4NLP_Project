@@ -59,7 +59,7 @@ def main():
     with open(output_file, 'w') as f:
         json.dump(results, f, indent=4)
         
-    print(f"Pipeline run complete. Results saved to {args.output_file}")
+    print(f"Pipeline run complete. Results saved to {output_file}")
 
 
 if __name__ == "__main__":
