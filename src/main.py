@@ -18,7 +18,7 @@ def main():
     parser.add_argument("--dataset", type=str, default="bbq", help="The dataset to use.")
     parser.add_argument("--num_samples", type=int, default=10, help="Number of samples to run from the dataset.")
     parser.add_argument("--output_file", type=str, help="File to save the results.")
-    parser.add_argument("--mitigation", type=str, required=False, choices=["awareness", "category", "cot", "adbp", "disabled"], default="disabled", help="Use mitigation techniques [awareness, category, cot, adbp, disabled].")
+    parser.add_argument("--mitigation", type=str, required=False, choices=["awareness", "category", "cot", "adbp", "sfrp", "disabled"], default="disabled", help="Use mitigation techniques [awareness, category, cot, adbp, sfrp, disabled].")
 
     args = parser.parse_args()
 
@@ -37,7 +37,7 @@ def main():
 
     # Load dataset
     if args.dataset == "bbq":
-        if args.mitigation == "disabled" or args.mitigation == "adbp":
+        if args.mitigation == "disabled" or args.mitigation == "adbp" or args.mitigation == "sfrp":
             dataset = BBQDataset(num_samples=args.num_samples)
         elif args.mitigation == "awareness":
             dataset = MitigationDataset(dataset=BBQDataset(num_samples=args.num_samples), 
@@ -51,7 +51,7 @@ def main():
         else:
             raise ValueError(f"Mitigation '{args.mitigation}' not supported for dataset '{args.dataset}'.")
     elif args.dataset == "stereoset": ##TODO: Add support for Stereoset dataset
-        if args.mitigation == "disabled" or args.mitigation == "adbp":
+        if args.mitigation == "disabled" or args.mitigation == "adbp" or args.mitigation == "sfrp":
             dataset = StereoSetDataset(num_samples=args.num_samples)
         elif args.mitigation == "awareness":
             dataset = MitigationDataset(dataset=StereoSetDataset(num_samples=args.num_samples), 
