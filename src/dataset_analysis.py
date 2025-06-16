@@ -210,7 +210,7 @@ class DataSetAnalysis(object):
             # gold_labels is the list of actual label types for the 3 options.
             # e.g., [STEREOTYPE_LABEL_TYPE, ANTI_STEREOTYPE_LABEL_TYPE, UNRELATED_LABEL_TYPE]
             # or a permutation like [UNRELATED_LABEL_TYPE, STEREOTYPE_LABEL_TYPE, ANTI_STEREOTYPE_LABEL_TYPE]
-            gold_labels_for_options = dataset_sample.get('gold_labels') 
+            gold_labels_for_options = dataset_sample.get('labels') 
             
             # model_chosen_option_idx is the index (0, 1, or 2) of the option chosen by the model.
             model_chosen_option_idx = model_e_response.get('response_label')
@@ -218,18 +218,18 @@ class DataSetAnalysis(object):
             if bias_category is None or gold_labels_for_options is None or \
                not isinstance(gold_labels_for_options, list) or len(gold_labels_for_options) != 3 or \
                model_chosen_option_idx is None or model_chosen_option_idx not in [0, 1, 2]:
-                # print(f"Warning: Skipping StereoSet item due to missing/malformed data: {item}")
+                print(f"Warning: Skipping StereoSet item due to missing/malformed data: {item}")
                 continue
             
             # Determine the actual label type (stereotype, anti-stereotype, unrelated) of the chosen option
             try:
                 model_chosen_label_type = gold_labels_for_options[model_chosen_option_idx]
             except IndexError:
-                # print(f"Warning: model_chosen_option_idx out of bounds for gold_labels_for_options. Item: {item}")
+                print(f"Warning: model_chosen_option_idx out of bounds for gold_labels_for_options. Item: {item}")
                 continue
 
             if model_chosen_label_type not in [STEREOTYPE_LABEL_TYPE, ANTI_STEREOTYPE_LABEL_TYPE, UNRELATED_LABEL_TYPE]:
-                # print(f"Warning: Derived model_chosen_label_type is invalid. Item: {item}")
+                print(f"Warning: Derived model_chosen_label_type is invalid. Item: {item}")
                 continue
 
             current_bias_category_stats = target_stats[bias_category]
