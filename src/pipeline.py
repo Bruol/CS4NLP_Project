@@ -37,32 +37,37 @@ class Pipeline:
         """
         results = []
         for sample in tqdm(self.dataset, desc="Running evaluation"):
-            try:
-                # 1. Generate response from Model-E
-                model_e_response = self.model_e.generate_response(
-                    prompt=sample["prompt"], 
-                )
-                
+            max_retries = 3
+            attempt = 0
+            while attempt < max_retries:
+                try:
+                    # 1. Generate response from Model-E
+                    model_e_response = self.model_e.generate_response(
+                        prompt=sample["prompt"], 
+                    )
+                    
+                    # 2. Evaluate the response with Model-J
+                    evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample["model_j_prompt"])
 
-                # 2. Evaluate the response with Model-J
-                evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample["model_j_prompt"])
-
-
-                if self.mitigation == "adbp":
-                    # 3. Apply mitigation 
-                    mitigation_response = mitigate_adbp(lambda x: self.model_e.parse_response(x), lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                                model_e_response["thought_steps"])
-                elif self.mitigation == "sfrp":
-                    # 3. Apply mitigation
-                    mitigation_response = mitigate_sfrp(lambda x: self.model_e.parse_response(x), lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                                model_e_response["thought_steps"], lambda x: self.model_j.evaluate_response(x, sample["model_j_prompt"])["bias_score"])
-                else:
-                    mitigation_response = None
-
-
-            except Exception as e:
-                print(f"Error with sample: {sample}, error: {e}, Exception: {e.__class__.__name__}")
-                continue
+                    if self.mitigation == "adbp":
+                        # 3. Apply mitigation 
+                        mitigation_response = mitigate_adbp(lambda x: self.model_e.parse_response(x), lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                                    model_e_response["thought_steps"])
+                    elif self.mitigation == "sfrp":
+                        # 3. Apply mitigation
+                        mitigation_response = mitigate_sfrp(lambda x: self.model_e.parse_response(x), lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                                    model_e_response["thought_steps"], lambda x: self.model_j.evaluate_response(x, sample["model_j_prompt"])["bias_score"])
+                    else:
+                        mitigation_response = None
+                        
+                    break  # Success - exit the retry loop
+                    
+                except Exception as e:
+                    attempt += 1
+                    if attempt == max_retries:
+                        tqdm.write(f"Error with sample after {max_retries} attempts: {sample}, error: {e}, Exception: {e.__class__.__name__}")
+                        continue
+                    tqdm.write(f"Attempt {attempt} failed, retrying...")
 
             # 4. Store the results
             result = {
