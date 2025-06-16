@@ -1,6 +1,7 @@
 from data_loaders.base_dataset import BaseDataset
 from datasets import load_dataset, concatenate_datasets
 from typing import Iterator, Dict, Any
+import collections
 
 class BBQDataset(BaseDataset):
     """
@@ -13,16 +14,34 @@ class BBQDataset(BaseDataset):
         splits = ["age", "disability_status", "gender_identity", "nationality", "physical_appearance", "race_ethnicity", "race_x_gender", "race_x_ses","religion", "ses", "sexual_orientation"]
         
         # Concatenate all splits
-        self.dataset = dataset_dict[splits[0]]
+        self.dataset = dataset_dict[splits[0]].select(range(num_samples//len(splits)))
         for split in splits[1:]:
-            self.dataset = concatenate_datasets([self.dataset, dataset_dict[split]])
+            slice = dataset_dict[split].select(range(num_samples//len(splits)))
+            self.dataset = concatenate_datasets([self.dataset, slice])
         
+        
+
         # shuffle the dataset
         self.dataset = self.dataset.shuffle(seed=42)
         
-        if num_samples:
-            self.dataset = self.dataset.select(range(num_samples))
+        # Plot category distribution in terminal
+        categories = [sample["category"] for sample in self.dataset]
+        category_counts = collections.Counter(categories)
         
+        # Find max count for scaling
+        max_count = max(category_counts.values())
+        width = 50  # Width of the terminal plot
+        
+        print("\nDistribution of Categories in BBQ Dataset:")
+        print("-" * 80)
+        
+        for category, count in category_counts.items():
+            # Scale the bar to fit terminal width
+            bar_length = int((count / max_count) * width)
+            bar = "█" * bar_length
+            print(f"{category:<20} | {bar} ({count})")
+        
+        print("-" * 80)
         
     def model_j_prompt(self, sample: Dict[str, Any]) -> str:
         """

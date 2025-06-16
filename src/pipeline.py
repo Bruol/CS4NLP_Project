@@ -67,9 +67,9 @@ class Pipeline:
                 "dataset_sample": sample,
                 "model_e_response": model_e_response,
                 "model_j_evaluation": evaluation,
-                "mitigation_response": mitigation_response["final_answer"],
-                "per_step_answers": mitigation_response["all_answers"],
-                "per_step_biases": mitigation_response["biases"]
+                "mitigation_response": mitigation_response["final_answer"] if mitigation_response is not None else None,
+                "per_step_answers": mitigation_response["all_answers"] if mitigation_response is not None else None,
+                "per_step_biases": mitigation_response["biases"] if mitigation_response is not None else None
             }
             results.append(result)
 
