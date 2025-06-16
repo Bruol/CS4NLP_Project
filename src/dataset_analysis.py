@@ -356,9 +356,9 @@ class DataSetAnalysis(object):
        
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--datapath", "-d", type=str, required=True)
-    parser.add_argument("--dataset_type", "-t", type=str, required=True)
+    parser = argparse.ArgumentParser(description="Analyze dataset results")
+    parser.add_argument("--datapath", "-d", type=str, required=True, help="Path to the dataset file")
+    parser.add_argument("--dataset_type", "-t", type=str, required=True, choices=["bbq", "stereoset"], help="Type of dataset to analyze")
     args = parser.parse_args()
     datapath = args.datapath
     dataset_type = args.dataset_type
