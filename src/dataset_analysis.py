@@ -1,7 +1,7 @@
 
 from collections import defaultdict
-import math
 import json
+import argparse
 
 class DataSetAnalysis(object):
     def __init__(self, data, dataset_type):
@@ -315,8 +315,13 @@ class DataSetAnalysis(object):
     
 
 def main():
-    datapath = "outputs/deepseek-r1-distill-llama_gpt-4o_bbq_1000_2025_06_12_16_25_55.json"
-    dataset_type = "bbq"  # or "stereoset"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--datapath", "-d", type=str, required=True)
+    parser.add_argument("--dataset_type", "-t", type=str, required=True)
+    args = parser.parse_args()
+    datapath = args.datapath
+    dataset_type = args.dataset_type
+
     try:
         with open(datapath, 'r') as f:
             data = json.load(f)
