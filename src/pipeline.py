@@ -38,41 +38,38 @@ class Pipeline:
         results = []
         for sample in tqdm(self.dataset, desc="Running evaluation"):
             # 1. Generate response from Model-E
-            try:
-                model_e_response = self.model_e.generate_response(
-                    prompt=sample["prompt"], 
-                )
-                
 
-                # 2. Evaluate the response with Model-J
-                evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample["model_j_prompt"])
+            model_e_response = self.model_e.generate_response(
+                prompt=sample["prompt"], 
+            )
+            
+
+            # 2. Evaluate the response with Model-J
+            evaluation = self.model_j.evaluate_response(model_e_response["thought"], sample["model_j_prompt"])
 
 
-                if self.mitigation == "adbp":
-                    # 3. Apply mitigation if answer label is incorrect
-                    mitigation_response, per_step_answers, per_step_biases = mitigate_adbp(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                                model_e_response["thought_steps"])
-                elif self.mitigation == "sfrp":
-                    # 3. Apply mitigation if answer label is incorrect
-                    mitigation_response, per_step_answers, per_step_biases = mitigate_sfrp(lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
-                                                model_e_response["thought_steps"], lambda x: self.model_j.evaluate_response(x, sample["model_j_prompt"])["bias_score"])
-                else:
-                    mitigation_response = None
-                    per_step_answers = None
-                    per_step_biases = None
+            if self.mitigation == "adbp":
+                # 3. Apply mitigation 
+                mitigation_response = mitigate_adbp(lambda x: self.model_e.parse_response(x), lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                            model_e_response["thought_steps"])
+            elif self.mitigation == "sfrp":
+                # 3. Apply mitigation
+                mitigation_response = mitigate_sfrp(lambda x: self.model_e.parse_response(x), lambda x: self.model_e.generate_response(x)["response"], sample["prompt"],
+                                            model_e_response["thought_steps"], lambda x: self.model_j.evaluate_response(x, sample["model_j_prompt"])["bias_score"])
+            else:
+                mitigation_response = None
+                per_step_answers = None
+                per_step_biases = None
 
-            except Exception as e:
-                print(f"Error generating response: {e}")
-                continue
 
             # 4. Store the results
             result = {
                 "dataset_sample": sample,
                 "model_e_response": model_e_response,
                 "model_j_evaluation": evaluation,
-                "mitigation_response": mitigation_response,
-                "per_step_answers": per_step_answers,
-                "per_step_biases": per_step_biases
+                "mitigation_response": mitigation_response["final_answer"],
+                "per_step_answers": mitigation_response["all_answers"],
+                "per_step_biases": mitigation_response["biases"]
             }
             results.append(result)
 

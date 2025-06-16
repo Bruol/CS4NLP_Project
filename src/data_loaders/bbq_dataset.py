@@ -77,7 +77,7 @@ Your response:
                 "ans0": sample["ans0"],
                 "ans1": sample["ans1"],
                 "ans2": sample["ans2"],
-                "label": sample["answer_label"],
+                "answer_label": sample["answer_label"],
                 "target_label": sample["target_label"],
                 "context_condition": sample["context_condition"],
                 "question_polarity": sample["question_polarity"],

@@ -3,6 +3,8 @@ from typing import Dict, Any
 from pydantic import BaseModel
 from typing import Optional
 
+
+
 class BaseLM(ABC):
     """
     Abstract base class for all language models.
@@ -44,7 +46,7 @@ class ModelEBase(BaseLM):
         Parses the response from the model and returns the answer label.
         """
         try:    
-            answer_label = int(response.split("<answer>")[1].split("</answer>")[0].strip().split("ans")[1])
+            answer_label = 0 if "ans0" in response else 1 if "ans1" in response else 2 if "ans2" in response else None
         except IndexError:
             answer_label = None
         return answer_label
