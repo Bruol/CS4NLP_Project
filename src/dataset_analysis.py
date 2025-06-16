@@ -54,7 +54,7 @@ class DataSetAnalysis(object):
             context_condition = dataset_sample.get('context_condition')
             correct_answer_idx = dataset_sample.get('label')
 
-            bias_answer_idx = dataset_sample.get('bias_label') # Expect this to be present for bias calculation
+            bias_answer_idx = dataset_sample.get('target_label') # Expect this to be present for bias calculation
             
             possible_indices = {0, 1, 2}
             unknown_answer_idx = None
@@ -312,7 +312,6 @@ class DataSetAnalysis(object):
     def __str__(self):
         return f"DataSetAnalysis(dataset_type={self.dataset_type}, data={self.data})"
        
-    
 
 def main():
     datapath = "outputs/deepseek-r1-distill-llama_gpt-4o_bbq_1000_2025_06_12_16_25_55.json"
