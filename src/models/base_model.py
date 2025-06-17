@@ -28,6 +28,10 @@ class ModelEBase(BaseLM):
     This model generates natural language responses, potentially with chain-of-thought reasoning.
     """
 
+    def __init__(self, model_name: str):
+        super().__init__(model_name)
+        self.reasoning_effort = "medium"
+
     @abstractmethod
     def generate_response(self, prompt: str) -> Dict[str, Any]:
         """
@@ -41,6 +45,12 @@ class ModelEBase(BaseLM):
             str: The model's response.
         """
         pass
+    def set_reasoning_effort(self, reasoning_effort: str):
+        """
+        Sets the reasoning effort for the model.
+        """
+        raise NotImplementedError("This method is not implemented for this model.")
+    
     def parse_response(self, response: str) -> Optional[int]:
         """
         Parses the response from the model and returns the answer label.

@@ -15,6 +15,13 @@ class GeminiModelE(ModelEBase):
         client = Client(api_key=GOOGLE_API_KEY)
         self.model = client.models
         self.model_name = model_name
+        self.thinking_budget = 8000
+
+    def set_reasoning_effort(self, reasoning_effort: str):
+        """
+        Sets the reasoning effort for the model.
+        """
+        self.thinking_budget = 8000 if reasoning_effort == "medium" else 16000 if reasoning_effort == "high" else 4000
 
     def generate_response(self, prompt: str) -> Dict[str, Any]:
         """
@@ -30,7 +37,7 @@ class GeminiModelE(ModelEBase):
         """
         config = types.GenerateContentConfig(
             thinking_config=types.ThinkingConfig(
-                thinking_budget=8000,
+                thinking_budget=self.thinking_budget,
                 include_thoughts=True
             )
         )
