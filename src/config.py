@@ -29,3 +29,8 @@ OPENAI_AZURE_API_KEY = os.getenv("OPENAI_AZURE_API_KEY")
 
 if not OPENAI_AZURE_API_KEY:
     raise ValueError("OPENAI_AZURE_API_KEY not found in environment variables. Please set it in your .env file.")
+
+AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT")
+
+if not AZURE_ENDPOINT:
+    raise ValueError("AZURE_ENDPOINT not found in environment variables. Please set it in your .env file.")
