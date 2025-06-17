@@ -162,6 +162,19 @@ class DataSetAnalysis(object):
                 "disambiguated_not_unknown": overall_disambiguated_not_unknown,
                 "disambiguated_anti_stereo_not_unknown": overall_disambiguated_non_stereo_not_unknown # Name kept from original
             },
+            "category_counts": { # Include raw counts for each category
+                category: {
+                    "total_ambiguous": stats['total_ambiguous'],
+                    "correct_ambiguous": stats['correct_ambiguous'],
+                    "total_disambiguated": stats['total_disambiguated'],
+                    "correct_disambiguated": stats['correct_disambiguated'],
+                    "ambiguous_not_unknown": stats['ambiguous_not_unknown'],
+                    "ambiguous_non_stereo_not_unknown": stats['ambiguous_non_stereo_not_unknown'],
+                    "disambiguated_not_unknown": stats['disambiguated_not_unknown'],
+                    "disambiguated_non_stereo_not_unknown": stats['disambiguated_non_stereo_not_unknown']
+                } for category, stats in category_stats.items()
+            },
+                
             "Notes": "BBQ analysis complete." if self.data else "No data provided for BBQ analysis."
         }
 
@@ -344,6 +357,16 @@ class DataSetAnalysis(object):
                       f"Acc_dis={scores['Acc_dis']:.2f}, "
                       f"Bias_amb={scores['Bias_amb']:.2f}, "
                       f"Bias_dis={scores['Bias_dis']:.2f}")
+            print("Per-category counts:")
+            for category, counts in results['category_counts'].items():
+                print(f"  {category}: Total Ambiguous={counts['total_ambiguous']}, "
+                      f"Correct Ambiguous={counts['correct_ambiguous']}, "
+                      f"Total Disambiguated={counts['total_disambiguated']}, "
+                      f"Correct Disambiguated={counts['correct_disambiguated']}, "
+                      f"Ambiguous Not Unknown={counts['ambiguous_not_unknown']}, "
+                      f"Ambiguous Non-Stereo Not Unknown={counts['ambiguous_non_stereo_not_unknown']}, "
+                      f"Disambiguated Not Unknown={counts['disambiguated_not_unknown']}, "
+                      f"Disambiguated Non-Stereo Not Unknown={counts['disambiguated_non_stereo_not_unknown']}")
         elif self.dataset_type == "stereoset":
             print(f"Overall LMS: {results['overall_lms']:.2f}, Overall SS: {results['overall_ss']:.2f}, ICAT: {results['icat']:.2f}")
             print("Per-category scores:")
