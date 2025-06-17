@@ -19,18 +19,20 @@ def main():
     parser.add_argument("--num_samples", type=int, default=10, help="Number of samples to run from the dataset.")
     parser.add_argument("--output_file", type=str, help="File to save the results.")
     parser.add_argument("--mitigation", type=str, required=False, choices=["awareness", "category", "cot", "adbp", "sfrp", "disabled"], default="disabled", help="Use mitigation techniques [awareness, category, cot, adbp, sfrp, disabled].")
+    parser.add_argument("--model_e_cot_length", type=str, default="medium", help="Length of the chain-of-thought reasoning for Model-E. openai--[low, medium, high] gemini--[4000, 8000, 16000] deepseek--[500, 1000, 2000] [default: medium]")
 
     args = parser.parse_args()
 
     if args.output_file:
         output_file = args.output_file
     else:   
-        output_file = f"../outputs/{args.model_e.split('/')[-1]}_{args.model_j.split('/')[-1]}_{args.dataset}_{args.num_samples}_{args.mitigation}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M')}.json"
+        output_file = f"../outputs/{args.model_e.split('/')[-1]}_{args.model_j.split('/')[-1]}_{args.dataset}_{args.num_samples}_{args.mitigation}_{args.model_e_cot_length}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M')}.json"
 
     print("Initializing pipeline...")
     
     # Instantiate Model-E
     model_e = get_model(args.model_e, "e")
+    model_e.set_reasoning_effort(args.model_e_cot_length)
     
     # Instantiate Model-J
     model_j = get_model(args.model_j, "j")

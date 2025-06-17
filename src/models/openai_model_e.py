@@ -14,7 +14,7 @@ class OpenAIModelE(ModelEBase):
     A Model-E implementation using the DeepSeek-R1 Model.
     """
 
-    def __init__(self, model_name: str, reasoning_effort: str = "medium", Azure: bool = True):
+    def __init__(self, model_name: str, Azure: bool = True):
         super().__init__(model_name)
         if Azure:
                 endpoint = "https://lurba-mbuxinhu-swedencentral.cognitiveservices.azure.com/"
@@ -29,7 +29,12 @@ class OpenAIModelE(ModelEBase):
         else:
                 self.client = OpenAI(api_key=OPENAI_API_KEY)
         self.model_name = model_name
-        self.reasoning_effort = reasoning_effort if reasoning_effort in REASONING_EFFORTS else "medium"
+    
+    def set_reasoning_effort(self, reasoning_effort: str):
+        """
+        Sets the reasoning effort for the model.
+        """
+        self.reasoning_effort = reasoning_effort
 
     def generate_response(self, prompt: str) -> dict:
         

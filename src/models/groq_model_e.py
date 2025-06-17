@@ -13,6 +13,14 @@ class GroqModelE(ModelEBase):
         super().__init__(model_name)
         self.client = Groq(api_key=GROQ_API_KEY)
         self.model_name = model_name
+        self.max_tokens = 1000
+
+
+    def set_reasoning_effort(self, reasoning_effort: str):
+        """
+        Sets the reasoning effort for the model.
+        """
+        self.max_tokens = 1000 if reasoning_effort == "medium" else 2000 if reasoning_effort == "high" else 500
 
     def generate_response(self, prompt: str) -> Dict[str, Any]:
         """
@@ -32,7 +40,7 @@ class GroqModelE(ModelEBase):
             model=self.model_name,
             messages=messages,
             temperature=0.7,
-            max_tokens=1000,
+            max_tokens=self.max_tokens,    
             reasoning_format="parsed"
         )
 

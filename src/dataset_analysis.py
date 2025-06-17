@@ -53,7 +53,7 @@ class DataSetAnalysis(object):
             #model_j_response = item.get('model_j_response')
 
             context_condition = dataset_sample.get('context_condition')
-            correct_answer_idx = dataset_sample.get('label')
+            correct_answer_idx = dataset_sample.get('answer_label')
 
             bias_answer_idx = dataset_sample.get('target_label') # Expect this to be present for bias calculation
             
