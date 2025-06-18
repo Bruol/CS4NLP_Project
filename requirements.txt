@@ -8,3 +8,5 @@ torch
 tqdm
 groq
 matplotlib
+pandas
+seaborn

@@ -1,0 +1,360 @@
+=== Processing: deepseek-r1-distill-llama_gpt-4o_bbq_2750_disabled_high_2025_06_17_08_19.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2750
+Acc_amb: 0.94, Acc_dis: 0.92, Bias_amb: 0.22, Bias_dis: -0.02
+Overall Scores:
+  Total Ambiguous: 1375
+  Correct Ambiguous: 1299
+  Total Disambiguated: 1375
+  Correct Disambiguated: 1260
+  Ambiguous Not Unknown: 76
+  Ambiguous Non-Stereo Not Unknown: 17
+  Disambiguated Not Unknown: 1260
+  Disambiguated Non-Stereo Not Unknown: 618
+Per-category scores:
+  Nationality: Acc_amb=0.84, Acc_dis=0.98, Bias_amb=0.35, Bias_dis=-0.02
+  Gender_identity: Acc_amb=1.00, Acc_dis=0.94, Bias_amb=0.00, Bias_dis=0.12
+  Sexual_orientation: Acc_amb=1.00, Acc_dis=0.75, Bias_amb=0.00, Bias_dis=0.09
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=0.02
+  Religion: Acc_amb=0.98, Acc_dis=0.92, Bias_amb=0.50, Bias_dis=0.03
+  Disability_status: Acc_amb=1.00, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=-0.17
+  SES: Acc_amb=1.00, Acc_dis=0.92, Bias_amb=0.00, Bias_dis=0.03
+  Race_x_SES: Acc_amb=0.99, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=-0.03
+  Physical_appearance: Acc_amb=1.00, Acc_dis=0.68, Bias_amb=0.00, Bias_dis=-0.20
+  Race_x_gender: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=0.01
+  Age: Acc_amb=0.58, Acc_dis=0.93, Bias_amb=0.17, Bias_dis=-0.09
+Per-category counts:
+  Nationality: Total Ambiguous=125, Correct Ambiguous=105, Total Disambiguated=125, Correct Disambiguated=123, Ambiguous Not Unknown=20, Ambiguous Non-Stereo Not Unknown=7, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=60
+  Gender_identity: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=118, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=118, Disambiguated Non-Stereo Not Unknown=66
+  Sexual_orientation: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=94, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=94, Disambiguated Non-Stereo Not Unknown=51
+  Race_ethnicity: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=122, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=122, Disambiguated Non-Stereo Not Unknown=62
+  Religion: Total Ambiguous=125, Correct Ambiguous=123, Total Disambiguated=125, Correct Disambiguated=115, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=115, Disambiguated Non-Stereo Not Unknown=59
+  Disability_status: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=123, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=51
+  SES: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=115, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=115, Disambiguated Non-Stereo Not Unknown=59
+  Race_x_SES: Total Ambiguous=125, Correct Ambiguous=124, Total Disambiguated=125, Correct Disambiguated=124, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=60
+  Physical_appearance: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=85, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=85, Disambiguated Non-Stereo Not Unknown=34
+  Race_x_gender: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=63
+  Age: Total Ambiguous=125, Correct Ambiguous=72, Total Disambiguated=125, Correct Disambiguated=116, Ambiguous Not Unknown=53, Ambiguous Non-Stereo Not Unknown=9, Disambiguated Not Unknown=116, Disambiguated Non-Stereo Not Unknown=53
+----------------------------------------
+=== Processing: deepseek-r1-distill-llama_gpt-4o_bbq_2750_disabled_low_2025_06_17_08_19.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2600
+Acc_amb: 0.96, Acc_dis: 0.94, Bias_amb: 0.23, Bias_dis: -0.03
+Overall Scores:
+  Total Ambiguous: 1318
+  Correct Ambiguous: 1261
+  Total Disambiguated: 1282
+  Correct Disambiguated: 1205
+  Ambiguous Not Unknown: 57
+  Ambiguous Non-Stereo Not Unknown: 13
+  Disambiguated Not Unknown: 1206
+  Disambiguated Non-Stereo Not Unknown: 584
+Per-category scores:
+  Nationality: Acc_amb=0.88, Acc_dis=1.00, Bias_amb=0.43, Bias_dis=-0.02
+  Gender_identity: Acc_amb=1.00, Acc_dis=0.97, Bias_amb=0.00, Bias_dis=0.12
+  Sexual_orientation: Acc_amb=1.00, Acc_dis=0.75, Bias_amb=0.00, Bias_dis=0.08
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=-0.01
+  Religion: Acc_amb=0.98, Acc_dis=0.95, Bias_amb=1.00, Bias_dis=0.04
+  Disability_status: Acc_amb=1.00, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=-0.19
+  SES: Acc_amb=1.00, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=0.02
+  Race_x_SES: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.08
+  Physical_appearance: Acc_amb=1.00, Acc_dis=0.75, Bias_amb=0.00, Bias_dis=-0.20
+  Race_x_gender: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.01
+  Age: Acc_amb=0.62, Acc_dis=0.94, Bias_amb=0.12, Bias_dis=-0.11
+Per-category counts:
+  Nationality: Total Ambiguous=120, Correct Ambiguous=106, Total Disambiguated=124, Correct Disambiguated=124, Ambiguous Not Unknown=14, Ambiguous Non-Stereo Not Unknown=6, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=61
+  Gender_identity: Total Ambiguous=124, Correct Ambiguous=124, Total Disambiguated=124, Correct Disambiguated=120, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=120, Disambiguated Non-Stereo Not Unknown=67
+  Sexual_orientation: Total Ambiguous=122, Correct Ambiguous=122, Total Disambiguated=104, Correct Disambiguated=78, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=78, Disambiguated Non-Stereo Not Unknown=42
+  Race_ethnicity: Total Ambiguous=123, Correct Ambiguous=123, Total Disambiguated=113, Correct Disambiguated=111, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=111, Disambiguated Non-Stereo Not Unknown=55
+  Religion: Total Ambiguous=121, Correct Ambiguous=119, Total Disambiguated=103, Correct Disambiguated=98, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=2, Disambiguated Not Unknown=98, Disambiguated Non-Stereo Not Unknown=51
+  Disability_status: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=117, Correct Disambiguated=116, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=116, Disambiguated Non-Stereo Not Unknown=47
+  SES: Total Ambiguous=123, Correct Ambiguous=123, Total Disambiguated=121, Correct Disambiguated=118, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=118, Disambiguated Non-Stereo Not Unknown=60
+  Race_x_SES: Total Ambiguous=109, Correct Ambiguous=109, Total Disambiguated=119, Correct Disambiguated=119, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=119, Disambiguated Non-Stereo Not Unknown=55
+  Physical_appearance: Total Ambiguous=119, Correct Ambiguous=119, Total Disambiguated=114, Correct Disambiguated=85, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=85, Disambiguated Non-Stereo Not Unknown=34
+  Race_x_gender: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=123, Correct Disambiguated=123, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=61
+  Age: Total Ambiguous=107, Correct Ambiguous=66, Total Disambiguated=120, Correct Disambiguated=113, Ambiguous Not Unknown=41, Ambiguous Non-Stereo Not Unknown=5, Disambiguated Not Unknown=114, Disambiguated Non-Stereo Not Unknown=51
+----------------------------------------
+=== Processing: deepseek-r1-distill-llama_gpt-4o_bbq_2750_disabled_medium_2025_06_16_13_13.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2743
+Acc_amb: 0.95, Acc_dis: 0.93, Bias_amb: 0.26, Bias_dis: -0.04
+Overall Scores:
+  Total Ambiguous: 1373
+  Correct Ambiguous: 1299
+  Total Disambiguated: 1370
+  Correct Disambiguated: 1268
+  Ambiguous Not Unknown: 74
+  Ambiguous Non-Stereo Not Unknown: 19
+  Disambiguated Not Unknown: 1269
+  Disambiguated Non-Stereo Not Unknown: 612
+Per-category scores:
+  Nationality: Acc_amb=0.87, Acc_dis=0.99, Bias_amb=0.50, Bias_dis=-0.02
+  Gender_identity: Acc_amb=1.00, Acc_dis=0.94, Bias_amb=0.00, Bias_dis=0.11
+  Sexual_orientation: Acc_amb=1.00, Acc_dis=0.82, Bias_amb=0.00, Bias_dis=-0.05
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=0.00
+  Religion: Acc_amb=0.94, Acc_dis=0.89, Bias_amb=0.71, Bias_dis=0.01
+  Disability_status: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.16
+  SES: Acc_amb=0.99, Acc_dis=0.97, Bias_amb=0.00, Bias_dis=0.01
+  Race_x_SES: Acc_amb=0.98, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=-0.05
+  Physical_appearance: Acc_amb=1.00, Acc_dis=0.70, Bias_amb=0.00, Bias_dis=-0.18
+  Race_x_gender: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=0.01
+  Age: Acc_amb=0.62, Acc_dis=0.90, Bias_amb=0.13, Bias_dis=-0.10
+Per-category counts:
+  Nationality: Total Ambiguous=125, Correct Ambiguous=109, Total Disambiguated=125, Correct Disambiguated=124, Ambiguous Not Unknown=16, Ambiguous Non-Stereo Not Unknown=8, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=61
+  Gender_identity: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=117, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=117, Disambiguated Non-Stereo Not Unknown=65
+  Sexual_orientation: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=121, Correct Disambiguated=99, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=99, Disambiguated Non-Stereo Not Unknown=47
+  Race_ethnicity: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=122, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=122, Disambiguated Non-Stereo Not Unknown=61
+  Religion: Total Ambiguous=125, Correct Ambiguous=118, Total Disambiguated=125, Correct Disambiguated=111, Ambiguous Not Unknown=7, Ambiguous Non-Stereo Not Unknown=5, Disambiguated Not Unknown=111, Disambiguated Non-Stereo Not Unknown=56
+  Disability_status: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=124, Correct Disambiguated=124, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=52
+  SES: Total Ambiguous=125, Correct Ambiguous=124, Total Disambiguated=125, Correct Disambiguated=121, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=121, Disambiguated Non-Stereo Not Unknown=61
+  Race_x_SES: Total Ambiguous=125, Correct Ambiguous=122, Total Disambiguated=125, Correct Disambiguated=124, Ambiguous Not Unknown=3, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=59
+  Physical_appearance: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=88, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=88, Disambiguated Non-Stereo Not Unknown=36
+  Race_x_gender: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=63
+  Age: Total Ambiguous=123, Correct Ambiguous=76, Total Disambiguated=125, Correct Disambiguated=113, Ambiguous Not Unknown=47, Ambiguous Non-Stereo Not Unknown=6, Disambiguated Not Unknown=113, Disambiguated Non-Stereo Not Unknown=51
+----------------------------------------
+=== Processing: gemini-2.5-flash_gpt-4o_bbq_2750_disabled_high_2025_06_17_10_28.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2515
+Acc_amb: 0.95, Acc_dis: 0.96, Bias_amb: 0.27, Bias_dis: -0.02
+Overall Scores:
+  Total Ambiguous: 1219
+  Correct Ambiguous: 1163
+  Total Disambiguated: 1296
+  Correct Disambiguated: 1250
+  Ambiguous Not Unknown: 56
+  Ambiguous Non-Stereo Not Unknown: 15
+  Disambiguated Not Unknown: 1252
+  Disambiguated Non-Stereo Not Unknown: 614
+Per-category scores:
+  Nationality: Acc_amb=0.91, Acc_dis=0.99, Bias_amb=0.20, Bias_dis=0.00
+  Gender_identity: Acc_amb=0.99, Acc_dis=0.94, Bias_amb=0.00, Bias_dis=0.14
+  Sexual_orientation: Acc_amb=0.96, Acc_dis=0.88, Bias_amb=0.00, Bias_dis=-0.03
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.04
+  Religion: Acc_amb=0.91, Acc_dis=0.98, Bias_amb=0.90, Bias_dis=0.05
+  Disability_status: Acc_amb=0.99, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=-0.14
+  SES: Acc_amb=1.00, Acc_dis=0.94, Bias_amb=0.00, Bias_dis=-0.03
+  Race_x_SES: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.03
+  Physical_appearance: Acc_amb=0.99, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.13
+  Race_x_gender: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=0.04
+  Age: Acc_amb=0.74, Acc_dis=0.88, Bias_amb=0.14, Bias_dis=-0.03
+Per-category counts:
+  Nationality: Total Ambiguous=110, Correct Ambiguous=100, Total Disambiguated=123, Correct Disambiguated=122, Ambiguous Not Unknown=10, Ambiguous Non-Stereo Not Unknown=2, Disambiguated Not Unknown=122, Disambiguated Non-Stereo Not Unknown=61
+  Gender_identity: Total Ambiguous=109, Correct Ambiguous=108, Total Disambiguated=121, Correct Disambiguated=114, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=114, Disambiguated Non-Stereo Not Unknown=65
+  Sexual_orientation: Total Ambiguous=103, Correct Ambiguous=99, Total Disambiguated=116, Correct Disambiguated=102, Ambiguous Not Unknown=4, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=103, Disambiguated Non-Stereo Not Unknown=50
+  Race_ethnicity: Total Ambiguous=118, Correct Ambiguous=118, Total Disambiguated=114, Correct Disambiguated=114, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=114, Disambiguated Non-Stereo Not Unknown=55
+  Religion: Total Ambiguous=115, Correct Ambiguous=105, Total Disambiguated=113, Correct Disambiguated=111, Ambiguous Not Unknown=10, Ambiguous Non-Stereo Not Unknown=9, Disambiguated Not Unknown=111, Disambiguated Non-Stereo Not Unknown=58
+  Disability_status: Total Ambiguous=120, Correct Ambiguous=119, Total Disambiguated=125, Correct Disambiguated=124, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=54
+  SES: Total Ambiguous=104, Correct Ambiguous=104, Total Disambiguated=116, Correct Disambiguated=109, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=109, Disambiguated Non-Stereo Not Unknown=53
+  Race_x_SES: Total Ambiguous=112, Correct Ambiguous=112, Total Disambiguated=122, Correct Disambiguated=122, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=122, Disambiguated Non-Stereo Not Unknown=59
+  Physical_appearance: Total Ambiguous=113, Correct Ambiguous=112, Total Disambiguated=117, Correct Disambiguated=117, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=117, Disambiguated Non-Stereo Not Unknown=51
+  Race_x_gender: Total Ambiguous=105, Correct Ambiguous=105, Total Disambiguated=112, Correct Disambiguated=112, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=112, Disambiguated Non-Stereo Not Unknown=58
+  Age: Total Ambiguous=110, Correct Ambiguous=81, Total Disambiguated=117, Correct Disambiguated=103, Ambiguous Not Unknown=29, Ambiguous Non-Stereo Not Unknown=4, Disambiguated Not Unknown=103, Disambiguated Non-Stereo Not Unknown=50
+----------------------------------------
+=== Processing: gemini-2.5-flash_gpt-4o_bbq_2750_disabled_low_2025_06_17_10_27.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2548
+Acc_amb: 0.96, Acc_dis: 0.97, Bias_amb: 0.19, Bias_dis: -0.02
+Overall Scores:
+  Total Ambiguous: 1242
+  Correct Ambiguous: 1195
+  Total Disambiguated: 1306
+  Correct Disambiguated: 1266
+  Ambiguous Not Unknown: 47
+  Ambiguous Non-Stereo Not Unknown: 9
+  Disambiguated Not Unknown: 1268
+  Disambiguated Non-Stereo Not Unknown: 620
+Per-category scores:
+  Nationality: Acc_amb=0.93, Acc_dis=1.00, Bias_amb=0.12, Bias_dis=0.02
+  Gender_identity: Acc_amb=0.98, Acc_dis=0.94, Bias_amb=0.50, Bias_dis=0.14
+  Sexual_orientation: Acc_amb=0.98, Acc_dis=0.86, Bias_amb=0.00, Bias_dis=0.01
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.04
+  Religion: Acc_amb=0.96, Acc_dis=1.00, Bias_amb=0.80, Bias_dis=0.01
+  Disability_status: Acc_amb=0.99, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=-0.16
+  SES: Acc_amb=1.00, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=0.04
+  Race_x_SES: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.02
+  Physical_appearance: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.10
+  Race_x_gender: Acc_amb=1.00, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=-0.06
+  Age: Acc_amb=0.73, Acc_dis=0.88, Bias_amb=0.10, Bias_dis=-0.05
+Per-category counts:
+  Nationality: Total Ambiguous=113, Correct Ambiguous=105, Total Disambiguated=120, Correct Disambiguated=120, Ambiguous Not Unknown=8, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=120, Disambiguated Non-Stereo Not Unknown=61
+  Gender_identity: Total Ambiguous=114, Correct Ambiguous=112, Total Disambiguated=120, Correct Disambiguated=113, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=114, Disambiguated Non-Stereo Not Unknown=65
+  Sexual_orientation: Total Ambiguous=109, Correct Ambiguous=107, Total Disambiguated=116, Correct Disambiguated=100, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=101, Disambiguated Non-Stereo Not Unknown=51
+  Race_ethnicity: Total Ambiguous=115, Correct Ambiguous=115, Total Disambiguated=119, Correct Disambiguated=119, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=119, Disambiguated Non-Stereo Not Unknown=57
+  Religion: Total Ambiguous=113, Correct Ambiguous=108, Total Disambiguated=115, Correct Disambiguated=115, Ambiguous Not Unknown=5, Ambiguous Non-Stereo Not Unknown=4, Disambiguated Not Unknown=115, Disambiguated Non-Stereo Not Unknown=58
+  Disability_status: Total Ambiguous=122, Correct Ambiguous=121, Total Disambiguated=125, Correct Disambiguated=124, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=52
+  SES: Total Ambiguous=106, Correct Ambiguous=106, Total Disambiguated=115, Correct Disambiguated=114, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=114, Disambiguated Non-Stereo Not Unknown=59
+  Race_x_SES: Total Ambiguous=114, Correct Ambiguous=114, Total Disambiguated=123, Correct Disambiguated=123, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=60
+  Physical_appearance: Total Ambiguous=116, Correct Ambiguous=116, Total Disambiguated=120, Correct Disambiguated=120, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=120, Disambiguated Non-Stereo Not Unknown=54
+  Race_x_gender: Total Ambiguous=111, Correct Ambiguous=111, Total Disambiguated=114, Correct Disambiguated=113, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=113, Disambiguated Non-Stereo Not Unknown=53
+  Age: Total Ambiguous=109, Correct Ambiguous=80, Total Disambiguated=119, Correct Disambiguated=105, Ambiguous Not Unknown=29, Ambiguous Non-Stereo Not Unknown=3, Disambiguated Not Unknown=105, Disambiguated Non-Stereo Not Unknown=50
+----------------------------------------
+=== Processing: gemini-2.5-flash_gpt-4o_bbq_2750_disabled_medium_2025_06_16_14_27.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2563
+Acc_amb: 0.96, Acc_dis: 0.97, Bias_amb: 0.19, Bias_dis: -0.03
+Overall Scores:
+  Total Ambiguous: 1252
+  Correct Ambiguous: 1199
+  Total Disambiguated: 1311
+  Correct Disambiguated: 1272
+  Ambiguous Not Unknown: 53
+  Ambiguous Non-Stereo Not Unknown: 10
+  Disambiguated Not Unknown: 1275
+  Disambiguated Non-Stereo Not Unknown: 620
+Per-category scores:
+  Nationality: Acc_amb=0.91, Acc_dis=0.99, Bias_amb=0.09, Bias_dis=-0.01
+  Gender_identity: Acc_amb=0.99, Acc_dis=0.96, Bias_amb=1.00, Bias_dis=0.11
+  Sexual_orientation: Acc_amb=0.95, Acc_dis=0.88, Bias_amb=0.00, Bias_dis=0.04
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=0.99, Bias_amb=0.00, Bias_dis=-0.01
+  Disability_status: Acc_amb=0.99, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.15
+  Religion: Acc_amb=0.95, Acc_dis=0.99, Bias_amb=0.80, Bias_dis=0.01
+  SES: Acc_amb=1.00, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=0.02
+  Race_x_SES: Acc_amb=0.99, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.07
+  Physical_appearance: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.17
+  Race_x_gender: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=0.00
+  Age: Acc_amb=0.72, Acc_dis=0.88, Bias_amb=0.14, Bias_dis=-0.07
+Per-category counts:
+  Nationality: Total Ambiguous=116, Correct Ambiguous=105, Total Disambiguated=120, Correct Disambiguated=119, Ambiguous Not Unknown=11, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=119, Disambiguated Non-Stereo Not Unknown=59
+  Gender_identity: Total Ambiguous=114, Correct Ambiguous=113, Total Disambiguated=124, Correct Disambiguated=119, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=121, Disambiguated Non-Stereo Not Unknown=67
+  Sexual_orientation: Total Ambiguous=108, Correct Ambiguous=103, Total Disambiguated=120, Correct Disambiguated=105, Ambiguous Not Unknown=5, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=106, Disambiguated Non-Stereo Not Unknown=55
+  Race_ethnicity: Total Ambiguous=119, Correct Ambiguous=119, Total Disambiguated=120, Correct Disambiguated=119, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=119, Disambiguated Non-Stereo Not Unknown=59
+  Disability_status: Total Ambiguous=124, Correct Ambiguous=123, Total Disambiguated=124, Correct Disambiguated=124, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=53
+  Religion: Total Ambiguous=108, Correct Ambiguous=103, Total Disambiguated=108, Correct Disambiguated=107, Ambiguous Not Unknown=5, Ambiguous Non-Stereo Not Unknown=4, Disambiguated Not Unknown=107, Disambiguated Non-Stereo Not Unknown=54
+  SES: Total Ambiguous=105, Correct Ambiguous=105, Total Disambiguated=120, Correct Disambiguated=118, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=118, Disambiguated Non-Stereo Not Unknown=60
+  Race_x_SES: Total Ambiguous=118, Correct Ambiguous=117, Total Disambiguated=122, Correct Disambiguated=122, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=122, Disambiguated Non-Stereo Not Unknown=57
+  Physical_appearance: Total Ambiguous=117, Correct Ambiguous=117, Total Disambiguated=118, Correct Disambiguated=118, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=118, Disambiguated Non-Stereo Not Unknown=49
+  Race_x_gender: Total Ambiguous=119, Correct Ambiguous=119, Total Disambiguated=116, Correct Disambiguated=116, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=116, Disambiguated Non-Stereo Not Unknown=58
+  Age: Total Ambiguous=104, Correct Ambiguous=75, Total Disambiguated=119, Correct Disambiguated=105, Ambiguous Not Unknown=29, Ambiguous Non-Stereo Not Unknown=4, Disambiguated Not Unknown=105, Disambiguated Non-Stereo Not Unknown=49
+----------------------------------------
+=== Processing: o4-mini_gpt-4o_bbq_2750_disabled_high_2025_06_17_08_17.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2684
+Acc_amb: 0.87, Acc_dis: 0.97, Bias_amb: 0.23, Bias_dis: -0.03
+Overall Scores:
+  Total Ambiguous: 1332
+  Correct Ambiguous: 1155
+  Total Disambiguated: 1352
+  Correct Disambiguated: 1315
+  Ambiguous Not Unknown: 177
+  Ambiguous Non-Stereo Not Unknown: 40
+  Disambiguated Not Unknown: 1334
+  Disambiguated Non-Stereo Not Unknown: 647
+Per-category scores:
+  Nationality: Acc_amb=0.84, Acc_dis=1.00, Bias_amb=0.42, Bias_dis=-0.01
+  Gender_identity: Acc_amb=0.99, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=0.16
+  Sexual_orientation: Acc_amb=0.89, Acc_dis=0.95, Bias_amb=0.23, Bias_dis=-0.01
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.01
+  Religion: Acc_amb=0.93, Acc_dis=0.99, Bias_amb=0.56, Bias_dis=-0.01
+  Disability_status: Acc_amb=0.89, Acc_dis=1.00, Bias_amb=0.21, Bias_dis=-0.15
+  SES: Acc_amb=0.92, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=0.01
+  Race_x_SES: Acc_amb=0.98, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.04
+  Physical_appearance: Acc_amb=0.80, Acc_dis=0.81, Bias_amb=0.20, Bias_dis=-0.16
+  Age: Acc_amb=0.33, Acc_dis=0.99, Bias_amb=0.18, Bias_dis=-0.06
+  Race_x_gender: Acc_amb=0.98, Acc_dis=0.97, Bias_amb=0.50, Bias_dis=-0.06
+Per-category counts:
+  Nationality: Total Ambiguous=121, Correct Ambiguous=102, Total Disambiguated=123, Correct Disambiguated=123, Ambiguous Not Unknown=19, Ambiguous Non-Stereo Not Unknown=8, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=61
+  Gender_identity: Total Ambiguous=123, Correct Ambiguous=122, Total Disambiguated=124, Correct Disambiguated=122, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=72
+  Sexual_orientation: Total Ambiguous=123, Correct Ambiguous=110, Total Disambiguated=124, Correct Disambiguated=118, Ambiguous Not Unknown=13, Ambiguous Non-Stereo Not Unknown=3, Disambiguated Not Unknown=121, Disambiguated Non-Stereo Not Unknown=60
+  Race_ethnicity: Total Ambiguous=125, Correct Ambiguous=125, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=62
+  Religion: Total Ambiguous=121, Correct Ambiguous=112, Total Disambiguated=124, Correct Disambiguated=123, Ambiguous Not Unknown=9, Ambiguous Non-Stereo Not Unknown=5, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=61
+  Disability_status: Total Ambiguous=125, Correct Ambiguous=111, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=14, Ambiguous Non-Stereo Not Unknown=3, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=53
+  SES: Total Ambiguous=99, Correct Ambiguous=91, Total Disambiguated=111, Correct Disambiguated=111, Ambiguous Not Unknown=8, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=111, Disambiguated Non-Stereo Not Unknown=56
+  Race_x_SES: Total Ambiguous=125, Correct Ambiguous=123, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=60
+  Physical_appearance: Total Ambiguous=125, Correct Ambiguous=100, Total Disambiguated=123, Correct Disambiguated=100, Ambiguous Not Unknown=25, Ambiguous Non-Stereo Not Unknown=5, Disambiguated Not Unknown=112, Disambiguated Non-Stereo Not Unknown=47
+  Age: Total Ambiguous=125, Correct Ambiguous=41, Total Disambiguated=125, Correct Disambiguated=124, Ambiguous Not Unknown=84, Ambiguous Non-Stereo Not Unknown=15, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=58
+  Race_x_gender: Total Ambiguous=120, Correct Ambiguous=118, Total Disambiguated=123, Correct Disambiguated=119, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=121, Disambiguated Non-Stereo Not Unknown=57
+----------------------------------------
+=== Processing: o4-mini_gpt-4o_bbq_2750_disabled_low_2025_06_17_08_17.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2678
+Acc_amb: 0.83, Acc_dis: 0.97, Bias_amb: 0.24, Bias_dis: -0.03
+Overall Scores:
+  Total Ambiguous: 1330
+  Correct Ambiguous: 1101
+  Total Disambiguated: 1348
+  Correct Disambiguated: 1309
+  Ambiguous Not Unknown: 229
+  Ambiguous Non-Stereo Not Unknown: 56
+  Disambiguated Not Unknown: 1331
+  Disambiguated Non-Stereo Not Unknown: 646
+Per-category scores:
+  Nationality: Acc_amb=0.80, Acc_dis=1.00, Bias_amb=0.38, Bias_dis=-0.01
+  Gender_identity: Acc_amb=0.98, Acc_dis=0.98, Bias_amb=0.00, Bias_dis=0.15
+  Sexual_orientation: Acc_amb=0.83, Acc_dis=0.95, Bias_amb=0.38, Bias_dis=-0.01
+  Race_ethnicity: Acc_amb=0.97, Acc_dis=1.00, Bias_amb=0.25, Bias_dis=-0.01
+  Religion: Acc_amb=0.83, Acc_dis=0.97, Bias_amb=0.65, Bias_dis=0.01
+  Disability_status: Acc_amb=0.84, Acc_dis=1.00, Bias_amb=0.15, Bias_dis=-0.15
+  Race_x_SES: Acc_amb=0.98, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.04
+  Physical_appearance: Acc_amb=0.75, Acc_dis=0.83, Bias_amb=0.10, Bias_dis=-0.16
+  Race_x_gender: Acc_amb=0.97, Acc_dis=0.98, Bias_amb=0.50, Bias_dis=-0.03
+  Age: Acc_amb=0.27, Acc_dis=0.98, Bias_amb=0.19, Bias_dis=-0.08
+  SES: Acc_amb=0.89, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=0.00
+Per-category counts:
+  Nationality: Total Ambiguous=122, Correct Ambiguous=98, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=24, Ambiguous Non-Stereo Not Unknown=9, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=62
+  Gender_identity: Total Ambiguous=124, Correct Ambiguous=122, Total Disambiguated=125, Correct Disambiguated=123, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=72
+  Sexual_orientation: Total Ambiguous=123, Correct Ambiguous=102, Total Disambiguated=125, Correct Disambiguated=119, Ambiguous Not Unknown=21, Ambiguous Non-Stereo Not Unknown=8, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=61
+  Race_ethnicity: Total Ambiguous=123, Correct Ambiguous=119, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=4, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=62
+  Religion: Total Ambiguous=121, Correct Ambiguous=101, Total Disambiguated=124, Correct Disambiguated=120, Ambiguous Not Unknown=20, Ambiguous Non-Stereo Not Unknown=13, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=62
+  Disability_status: Total Ambiguous=125, Correct Ambiguous=105, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=20, Ambiguous Non-Stereo Not Unknown=3, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=53
+  Race_x_SES: Total Ambiguous=125, Correct Ambiguous=123, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=60
+  Physical_appearance: Total Ambiguous=125, Correct Ambiguous=94, Total Disambiguated=124, Correct Disambiguated=103, Ambiguous Not Unknown=31, Ambiguous Non-Stereo Not Unknown=3, Disambiguated Not Unknown=114, Disambiguated Non-Stereo Not Unknown=48
+  Race_x_gender: Total Ambiguous=123, Correct Ambiguous=119, Total Disambiguated=125, Correct Disambiguated=122, Ambiguous Not Unknown=4, Ambiguous Non-Stereo Not Unknown=2, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=60
+  Age: Total Ambiguous=125, Correct Ambiguous=34, Total Disambiguated=123, Correct Disambiguated=120, Ambiguous Not Unknown=91, Ambiguous Non-Stereo Not Unknown=17, Disambiguated Not Unknown=120, Disambiguated Non-Stereo Not Unknown=55
+  SES: Total Ambiguous=94, Correct Ambiguous=84, Total Disambiguated=102, Correct Disambiguated=102, Ambiguous Not Unknown=10, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=102, Disambiguated Non-Stereo Not Unknown=51
+----------------------------------------
+=== Processing: o4-mini_gpt-4o_bbq_2750_disabled_medium_2025_06_16_13_13.json ===
+Dataset Type: bbq
+Judge Model: Unknown
+Evaluation Model: Unknown
+Number of Samples: 2520
+Acc_amb: 0.88, Acc_dis: 1.00, Bias_amb: 0.21, Bias_dis: -0.02
+Overall Scores:
+  Total Ambiguous: 1270
+  Correct Ambiguous: 1119
+  Total Disambiguated: 1250
+  Correct Disambiguated: 1249
+  Ambiguous Not Unknown: 151
+  Ambiguous Non-Stereo Not Unknown: 31
+  Disambiguated Not Unknown: 1249
+  Disambiguated Non-Stereo Not Unknown: 612
+Per-category scores:
+  Nationality: Acc_amb=0.84, Acc_dis=1.00, Bias_amb=0.45, Bias_dis=0.01
+  Gender_identity: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=0.17
+  Race_ethnicity: Acc_amb=1.00, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.02
+  Religion: Acc_amb=0.88, Acc_dis=1.00, Bias_amb=0.50, Bias_dis=0.00
+  Disability_status: Acc_amb=0.94, Acc_dis=1.00, Bias_amb=0.29, Bias_dis=-0.15
+  Race_x_SES: Acc_amb=0.98, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.05
+  Sexual_orientation: Acc_amb=0.96, Acc_dis=1.00, Bias_amb=0.50, Bias_dis=-0.01
+  Physical_appearance: Acc_amb=0.83, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.08
+  SES: Acc_amb=0.95, Acc_dis=1.00, Bias_amb=0.00, Bias_dis=-0.06
+  Race_x_gender: Acc_amb=0.99, Acc_dis=1.00, Bias_amb=1.00, Bias_dis=-0.01
+  Age: Acc_amb=0.33, Acc_dis=0.99, Bias_amb=0.12, Bias_dis=-0.03
+Per-category counts:
+  Nationality: Total Ambiguous=123, Correct Ambiguous=103, Total Disambiguated=123, Correct Disambiguated=123, Ambiguous Not Unknown=20, Ambiguous Non-Stereo Not Unknown=9, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=62
+  Gender_identity: Total Ambiguous=114, Correct Ambiguous=114, Total Disambiguated=116, Correct Disambiguated=116, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=116, Disambiguated Non-Stereo Not Unknown=68
+  Race_ethnicity: Total Ambiguous=120, Correct Ambiguous=120, Total Disambiguated=123, Correct Disambiguated=123, Ambiguous Not Unknown=0, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=123, Disambiguated Non-Stereo Not Unknown=60
+  Religion: Total Ambiguous=117, Correct Ambiguous=103, Total Disambiguated=118, Correct Disambiguated=118, Ambiguous Not Unknown=14, Ambiguous Non-Stereo Not Unknown=7, Disambiguated Not Unknown=118, Disambiguated Non-Stereo Not Unknown=59
+  Disability_status: Total Ambiguous=125, Correct Ambiguous=118, Total Disambiguated=125, Correct Disambiguated=125, Ambiguous Not Unknown=7, Ambiguous Non-Stereo Not Unknown=2, Disambiguated Not Unknown=125, Disambiguated Non-Stereo Not Unknown=53
+  Race_x_SES: Total Ambiguous=124, Correct Ambiguous=122, Total Disambiguated=124, Correct Disambiguated=124, Ambiguous Not Unknown=2, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=124, Disambiguated Non-Stereo Not Unknown=59
+  Sexual_orientation: Total Ambiguous=111, Correct Ambiguous=107, Total Disambiguated=111, Correct Disambiguated=111, Ambiguous Not Unknown=4, Ambiguous Non-Stereo Not Unknown=2, Disambiguated Not Unknown=111, Disambiguated Non-Stereo Not Unknown=55
+  Physical_appearance: Total Ambiguous=103, Correct Ambiguous=86, Total Disambiguated=72, Correct Disambiguated=72, Ambiguous Not Unknown=17, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=72, Disambiguated Non-Stereo Not Unknown=33
+  SES: Total Ambiguous=95, Correct Ambiguous=90, Total Disambiguated=104, Correct Disambiguated=104, Ambiguous Not Unknown=5, Ambiguous Non-Stereo Not Unknown=0, Disambiguated Not Unknown=104, Disambiguated Non-Stereo Not Unknown=49
+  Race_x_gender: Total Ambiguous=117, Correct Ambiguous=116, Total Disambiguated=117, Correct Disambiguated=117, Ambiguous Not Unknown=1, Ambiguous Non-Stereo Not Unknown=1, Disambiguated Not Unknown=117, Disambiguated Non-Stereo Not Unknown=58
+  Age: Total Ambiguous=121, Correct Ambiguous=40, Total Disambiguated=117, Correct Disambiguated=116, Ambiguous Not Unknown=81, Ambiguous Non-Stereo Not Unknown=10, Disambiguated Not Unknown=116, Disambiguated Non-Stereo Not Unknown=56
+----------------------------------------

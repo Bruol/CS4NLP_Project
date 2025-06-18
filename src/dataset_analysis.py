@@ -337,7 +337,7 @@ class DataSetAnalysis(object):
             print(f"Acc_amb: {results['Acc_amb']:.2f}, Acc_dis: {results['Acc_dis']:.2f}, "
                   f"Bias_amb: {results['Bias_amb']:.2f}, Bias_dis: {results['Bias_dis']:.2f}")
             print(f"Overall Scores:")
-            print(f"  Total Ambiguous: {results['overall_scores']['total_ambiguous']})")
+            print(f"  Total Ambiguous: {results['overall_scores']['total_ambiguous']}")
             print(f"  Correct Ambiguous: {results['overall_scores']['correct_ambiguous']}")
             print(f"  Total Disambiguated: {results['overall_scores']['total_disambiguated']}")
             print(f"  Correct Disambiguated: {results['overall_scores']['correct_disambiguated']}")
