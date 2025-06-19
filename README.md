@@ -5,7 +5,7 @@
 
 This repository contains the implementation of the research project investigating the influence of Chain-of-Thought (CoT) prompting on biases present in Large Language Models (LLMs).
 
-[Paper](https://raw.githubusercontent.com/Bruol/CS4NLP_Project/refs/heads/main/CS4NLP%20Project%20Report.pdf)
+[Paper](CS4NLP%20Project%20Report.pdf)
 
 This project is based on the research proposal by Lorin Urbantat, Coralie Sage, and Finn Brunke.
 
