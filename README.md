@@ -5,6 +5,8 @@
 
 This repository contains the implementation of the research project investigating the influence of Chain-of-Thought (CoT) prompting on biases present in Large Language Models (LLMs).
 
+[Paper](https://raw.githubusercontent.com/Bruol/CS4NLP_Project/refs/heads/main/CS4NLP%20Project%20Report.pdf)
+
 This project is based on the research proposal by Lorin Urbantat, Coralie Sage, and Finn Brunke.
 
 ## Table of Contents
@@ -18,10 +20,9 @@ This project is based on the research proposal by Lorin Urbantat, Coralie Sage, 
   - [Getting Started](#getting-started)
     - [Installation](#installation)
   - [Usage](#usage)
-  - [Limitations](#limitations)
-  - [Models \& Datasets](#models--datasets)
-    - [Evaluated Models (Model-E)](#evaluated-models-model-e)
-    - [Datasets](#datasets)
+    - [Analyze Data:](#analyze-data)
+  - [Datasets](#datasets)
+  - [Results](#results)
   - [License](#license)
   - [References](#references)
 
@@ -58,19 +59,7 @@ The core of our methodology is a pipeline that separates the generation of a res
 
 This modular design allows us to easily swap different models for evaluation (Model-E) and different methods for judging bias (Model-J), which can range from other powerful LLMs to more traditional NLP models.
 
-```
-                               +-----------------+
-[Prompt from Dataset] -------> |     Model-E     |
-                               | (e.g., Gemini)  |
-                               +-----------------+
-                                       |
-                                       | (Response + CoT)
-                                       v
-                               +-----------------+
-[Bias Score / Analysis] <------ |     Model-J     |
-                               | (e.g., LLM Judge) |
-                               +-----------------+
-```
+![pipeline](res/pipeline.png)
 
 ## Getting Started
 
@@ -97,21 +86,76 @@ To get a local copy up and running, follow these simple steps.
 
 ## Usage
 
-TODO
+To run the pipeline, use the following command:
 
-## Limitations
+```sh
+cd src
+python main.py -h
+```
 
-The most significant limitation of our approach is the potential for bias within the **Judge Model (Model-J)** itself. Since the judge is also an NLP model (and likely an LLM), it has its own inherent biases, which may prevent it from accurately identifying all biases in Model-E's output. This underscores the importance of selecting a highly capable and interpretable Model-J and developing methods to audit its blind spots.
+```
+usage: main.py [-h]
+               [--model_e {google/gemini-2.5-flash,google/gemini-2.5-pro,deepseek-ai/deepseek-r1,groq/deepseek-r1-distill-llama,groq/llama-3.3,openai/o4-mini,openai/gpt-4o}]
+               [--model_j {google/gemini-2.5-flash,google/gemini-2.5-pro,deepseek-ai/deepseek-r1,groq/deepseek-r1-distill-llama,groq/llama-3.3,openai/o4-mini,openai/gpt-4o}]
+               [--dataset DATASET] [--num_samples NUM_SAMPLES]
+               [--output_file OUTPUT_FILE]
+               [--mitigation {awareness,category,cot,adbp,sfrp,disabled}]
+               [--model_e_cot_length MODEL_E_COT_LENGTH]
 
-## Models & Datasets
+Run the bias evaluation pipeline.
 
-### Evaluated Models (Model-E)
+options:
+  -h, --help            show this help message and exit
+  --model_e {google/gemini-2.5-flash,google/gemini-2.5-pro,deepseek-ai/deepseek-r1,groq/deepseek-r1-distill-llama,groq/llama-3.3,openai/o4-mini,openai/gpt-4o}
+                        The model to be evaluated (Model-E).
+  --model_j {google/gemini-2.5-flash,google/gemini-2.5-pro,deepseek-ai/deepseek-r1,groq/deepseek-r1-distill-llama,groq/llama-3.3,openai/o4-mini,openai/gpt-4o}
+                        The judge model (Model-J).
+  --dataset DATASET     The dataset to use.
+  --num_samples NUM_SAMPLES
+                        Number of samples to run from the dataset.
+  --output_file OUTPUT_FILE
+                        File to save the results.
+  --mitigation {awareness,category,cot,adbp,sfrp,disabled}
+                        Use mitigation techniques [awareness, category, cot, adbp,
+                        sfrp, disabled].
+  --model_e_cot_length MODEL_E_COT_LENGTH
+                        Length of the chain-of-thought reasoning for Model-E.
+                        openai--[low, medium, high] gemini--[4000, 8000, 16000]
+                        deepseek--[500, 1000, 2000] [default: medium]
+```
 
-TODO
+### Analyze Data:
 
-### Datasets
+```sh
+cd src
+python analyze_data.py -h
+```
+
+```
+usage: dataset_analysis.py [-h] --datapath DATAPATH --dataset_type {bbq,stereoset}
+
+Analyze dataset results
+
+options:
+  -h, --help            show this help message and exit
+  --datapath, -d DATAPATH
+                        Path to the dataset file
+  --dataset_type, -t {bbq,stereoset}
+                         Type of dataset to analyze
+
+
+```
+
+> Note: There are some additional scripts in the outputs directory which were used to create the plots in the paper.
+
+## Datasets
 
 Currently, BBQ [7] and StereoSet [9] [10] implemented
+
+## Results
+
+For a discussion of our results please refer to the [paper](https://raw.githubusercontent.com/Bruol/CS4NLP_Project/refs/heads/main/CS4NLP%20Project%20Report.pdf).
+The data used for the tables and plots in the paper can be found in the `outputs` directory.
 
 ## License
 
@@ -121,13 +165,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 This work is informed by and builds upon the following research:
 
-[1] [https://arxiv.org/pdf/2503.08679](https://arxiv.org/pdf/2503.08679)  
-[2] [https://arxiv.org/pdf/2412.14093](https://arxiv.org/pdf/2412.14093)  
-[3] [https://arxiv.org/pdf/2301.13379](https://arxiv.org/pdf/2301.13379)  
-[4] [https://assets.anthropic.com/m/71876fabef0f0ed4/original/reasoning_models_paper.pdf](https://assets.anthropic.com/m/71876fabef0f0ed4/original/reasoning_models_paper.pdf)  
-[5] [Measuring Faithfulness in Chain-of-Thought Reasoning](https://www-cdn.anthropic.com/827afa7dd36e4afbb1a49c735bfbb2c69749756e/measuring-faithfulness-in-chain-of-thought-reasoning.pdf)  
-[6] [https://arxiv.org/pdf/2403.05518](https://arxiv.org/pdf/2403.05518)  
-[7] [https://arxiv.org/pdf/2110.08193](https://arxiv.org/pdf/2110.08193) (BBQ Dataset)  
-[8] [https://arxiv.org/pdf/2502.17424](https://arxiv.org/pdf/2502.17424)
-[9] [https://github.com/moinnadeem/StereoSet/tree/master] (https://github.com/moinnadeem/StereoSet/tree/master)
-[10] [https://github.com/McGill-NLP/bias-bench/tree/main] (https://github.com/McGill-NLP/bias-bench/tree/main)
+- [1] [https://arxiv.org/pdf/2503.08679](https://arxiv.org/pdf/2503.08679)
+- [2] [https://arxiv.org/pdf/2412.14093](https://arxiv.org/pdf/2412.14093)
+- [3] [https://arxiv.org/pdf/2301.13379](https://arxiv.org/pdf/2301.13379)
+- [4] [https://assets.anthropic.com/m/71876fabef0f0ed4/original/reasoning_models_paper.pdf](https://assets.anthropic.com/m/71876fabef0f0ed4/original/reasoning_models_paper.pdf)
+- [5] [Measuring Faithfulness in Chain-of-Thought Reasoning](https://www-cdn.anthropic.com/827afa7dd36e4afbb1a49c735bfbb2c69749756e/measuring-faithfulness-in-chain-of-thought-reasoning.pdf)
+- [6] [https://arxiv.org/pdf/2403.05518](https://arxiv.org/pdf/2403.05518)
+- [7] [https://arxiv.org/pdf/2110.08193](https://arxiv.org/pdf/2110.08193) (BBQ Dataset)
+- [8] [https://arxiv.org/pdf/2502.17424](https://arxiv.org/pdf/2502.17424)
+- [9] [https://github.com/moinnadeem/StereoSet/tree/master] (https://github.com/moinnadeem/StereoSet/tree/master)
+- [10] [https://github.com/McGill-NLP/bias-bench/tree/main] (https://github.com/McGill-
