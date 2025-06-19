@@ -154,7 +154,7 @@ Currently, BBQ [7] and StereoSet [9] [10] implemented
 
 ## Results
 
-For a discussion of our results please refer to the [paper](https://raw.githubusercontent.com/Bruol/CS4NLP_Project/refs/heads/main/CS4NLP%20Project%20Report.pdf).
+For a discussion of our results please refer to the [paper](CS4NLP%20Project%20Report.pdf).
 The data used for the tables and plots in the paper can be found in the `outputs` directory.
 
 ## License
