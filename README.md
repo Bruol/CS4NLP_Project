@@ -1,4 +1,4 @@
-# The Influence of Chain-of-Thought on LLM Biases
+# Thinking Outside the Bias: A Modular Evaluation Framework for Bias in
 
 [![Project Status: Active](https://img.shields.io/badge/status-active-success.svg)](https://github.com/Bruol/CS4NLP_Project)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,7 +11,7 @@ This project is based on the research proposal by Lorin Urbantat, Coralie Sage, 
 
 ## Table of Contents
 
-- [The Influence of Chain-of-Thought on LLM Biases](#the-influence-of-chain-of-thought-on-llm-biases)
+- [Thinking Outside the Bias: A Modular Evaluation Framework for Bias in](#thinking-outside-the-bias-a-modular-evaluation-framework-for-bias-in)
   - [Table of Contents](#table-of-contents)
   - [About The Project](#about-the-project)
     - [Research Question](#research-question)
