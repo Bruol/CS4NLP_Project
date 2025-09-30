@@ -1,4 +1,4 @@
-# Thinking Outside the Bias: A Modular Evaluation Framework for Bias in
+# Thinking Outside the Bias: A Modular Evaluation Framework for Bias in Chain-of-Thought Reasoning
 
 [![Project Status: Active](https://img.shields.io/badge/status-active-success.svg)](https://github.com/Bruol/CS4NLP_Project)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
